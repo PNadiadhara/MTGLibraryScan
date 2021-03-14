@@ -29,18 +29,21 @@ class OCRScanView: UIView {
     
     public lazy var choosePhotoButton: UIButton = {
        let button = UIButton()
-            
+        button.setTitle("Choose Photo", for: .normal)
+        button.backgroundColor = .black
+        
         return button
     }()
     
     public lazy var takePhotoButton: UIButton = {
        let button = UIButton()
-        
+        button.setTitle("Take Photo", for: .normal)
+        button.backgroundColor = .black
         return button
     }()
     
     override init(frame: CGRect) {
-        super.init(frame: frame)
+        super.init(frame: UIScreen.main.bounds)
         setConstraints()
     }
     
@@ -71,20 +74,20 @@ class OCRScanView: UIView {
         setLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 11).isActive = true
         setLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -11).isActive = true
         setLabel.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.20).isActive = true
-        
+
         setNumberLabel.topAnchor.constraint(equalTo: setLabel.bottomAnchor, constant: 11).isActive = true
         setNumberLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 11).isActive = true
         setNumberLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -11).isActive = true
         setNumberLabel.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.20).isActive = true
-        
+
         choosePhotoButton.topAnchor.constraint(equalTo: setNumberLabel.bottomAnchor, constant: 11).isActive = true
         choosePhotoButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 11).isActive = true
         choosePhotoButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -11).isActive = true
         choosePhotoButton.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.20).isActive = true
-        
+
         takePhotoButton.topAnchor.constraint(equalTo: choosePhotoButton.bottomAnchor, constant: 11).isActive = true
         takePhotoButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 11).isActive = true
         takePhotoButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -11).isActive = true
-        takePhotoButton.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.20).isActive = true
-    }
+        takePhotoButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -11).isActive = true
+      }
 }

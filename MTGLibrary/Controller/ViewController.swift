@@ -40,6 +40,11 @@ class ViewController: UIViewController {
         view.addSubview(OCRScanview)
         
         OCRScanview.nameLabel.text = "test"
+        configureButtons()
+    }
+    
+    func configureButtons(){
+        OCRScanview.takePhotoButton.addTarget(self, action: #selector(takePhoto(_:)), for: .touchUpInside )
     }
 
     
