@@ -14,9 +14,7 @@ class ViewController: UIViewController {
     
     let OCRScanview = OCRScanView()
     var image: UIImage?
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var setLabel: UILabel!
-    @IBOutlet weak var setNumberLabel: UILabel!
+
     
     @IBAction func choosePhoto(_ sender: Any) {
         presentPhotoPicker(type: .photoLibrary)
@@ -39,7 +37,7 @@ class ViewController: UIViewController {
         view.backgroundColor = .blue
         view.addSubview(OCRScanview)
         
-        OCRScanview.nameLabel.text = "test"
+        OCRScanview.nameLabel.text = ""
         configureButtons()
     }
     
@@ -49,9 +47,9 @@ class ViewController: UIViewController {
 
     
     func processImage() {
-        nameLabel.text = ""
-        setLabel.text = ""
-        setNumberLabel.text = ""
+        OCRScanview.nameLabel.text = ""
+        OCRScanview.setLabel.text = ""
+        OCRScanview.setNumberLabel.text = ""
         
         guard let image  = image, let cgImage = image.cgImage else {return}
         
@@ -106,12 +104,12 @@ class ViewController: UIViewController {
         }
         
         DispatchQueue.main.async {
-            self.nameLabel.text = nameComponent.text
+            self.OCRScanview.nameLabel.text = nameComponent.text
             if setNumberComponent.text.count >= 3 {
-                self.setNumberLabel.text = "\(setNumberComponent.text.prefix(3))"
+                self.OCRScanview.setNumberLabel.text = "\(setNumberComponent.text.prefix(3))"
             }
             if setComponent.text.count >= 3 {
-                self.setLabel.text = "\(setComponent.text.prefix(3))"
+                self.OCRScanview.setLabel.text = "\(setComponent.text.prefix(3))"
             }
         }
     }

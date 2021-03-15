@@ -12,18 +12,21 @@ class OCRScanView: UIView {
     public lazy var nameLabel: UITextView = {
        let tv = UITextView()
         tv.isEditable = false
+        tv.textColor = .white
         return tv
     }()
     
     public lazy var setLabel: UITextView = {
        let tv = UITextView()
         tv.isEditable = false
+        tv.textColor = .white
         return tv
     }()
     
     public lazy var setNumberLabel: UITextView = {
        let tv = UITextView()
         tv.isEditable = false
+        tv.textColor = .white
         return tv
     }()
     
