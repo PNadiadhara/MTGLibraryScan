@@ -24,6 +24,13 @@ class ViewController: UIViewController {
         presentPhotoPicker(type: .camera)
     }
     
+    public func presentPhotoPicker(type: UIImagePickerController.SourceType) {
+        let controller = UIImagePickerController()
+        controller.sourceType = type
+        controller.delegate = self
+        present(controller, animated: true, completion: nil)
+    }
+    
     lazy var textDetectionRequest: VNRecognizeTextRequest = {
         let request = VNRecognizeTextRequest(completionHandler: self.handleDectectedText)
         request.recognitionLevel = .accurate

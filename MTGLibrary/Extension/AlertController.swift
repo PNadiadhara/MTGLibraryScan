@@ -37,11 +37,7 @@ extension UIViewController {
         present(alertController, animated: true)
     }
     
-    public func presentPhotoPicker(type: UIImagePickerController.SourceType) {
-        let controller = UIImagePickerController()
-        controller.sourceType = type
-        present(controller, animated: true, completion: nil)
-    }
+    
 }
 
 
