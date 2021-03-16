@@ -50,6 +50,7 @@ class ViewController: UIViewController {
     
     func configureButtons(){
         OCRScanview.takePhotoButton.addTarget(self, action: #selector(takePhoto(_:)), for: .touchUpInside )
+        OCRScanview.choosePhotoButton.addTarget(self, action: #selector(choosePhoto(_:)), for: .touchUpInside)
     }
 
     
