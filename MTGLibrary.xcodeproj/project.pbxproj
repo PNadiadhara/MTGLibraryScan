@@ -20,6 +20,9 @@
 		BFDC7E67260145A000D93D93 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC7E66260145A000D93D93 /* TitleLabel.swift */; };
 		BFDC7E6B260145EF00D93D93 /* SecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC7E6A260145EF00D93D93 /* SecondaryTitleLabel.swift */; };
 		BFDC7E6F2601461400D93D93 /* BodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC7E6E2601461400D93D93 /* BodyLabel.swift */; };
+		BFDC7E722601469800D93D93 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC7E712601469800D93D93 /* NetworkManager.swift */; };
+		BFDC7E762601478B00D93D93 /* MTGError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC7E752601478B00D93D93 /* MTGError.swift */; };
+		BFDC7E792601484400D93D93 /* MTGCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC7E782601484400D93D93 /* MTGCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		BFDC7E66260145A000D93D93 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		BFDC7E6A260145EF00D93D93 /* SecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryTitleLabel.swift; sourceTree = "<group>"; };
 		BFDC7E6E2601461400D93D93 /* BodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyLabel.swift; sourceTree = "<group>"; };
+		BFDC7E712601469800D93D93 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		BFDC7E752601478B00D93D93 /* MTGError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGError.swift; sourceTree = "<group>"; };
+		BFDC7E782601484400D93D93 /* MTGCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,13 +79,15 @@
 				BF1E2E1F25F9254100888984 /* AppDelegate.swift */,
 				BF1E2E2125F9254100888984 /* SceneDelegate.swift */,
 				BF1E2E3A25F939B900888984 /* Model */,
+				BF1E2E4725F95C9F00888984 /* View */,
 				BF1E2E3525F9256100888984 /* Controller */,
+				BF1E2E4225F93ECE00888984 /* Extension */,
 				BF1E2E2525F9254100888984 /* Main.storyboard */,
 				BF1E2E2825F9254100888984 /* Assets.xcassets */,
 				BF1E2E2A25F9254100888984 /* LaunchScreen.storyboard */,
 				BF1E2E2D25F9254100888984 /* Info.plist */,
-				BF1E2E4225F93ECE00888984 /* Extension */,
-				BF1E2E4725F95C9F00888984 /* View */,
+				BFDC7E712601469800D93D93 /* NetworkManager.swift */,
+				BFDC7E752601478B00D93D93 /* MTGError.swift */,
 			);
 			path = MTGLibrary;
 			sourceTree = "<group>";
@@ -96,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				BF1E2E3725F939B200888984 /* CardComponent.swift */,
+				BFDC7E782601484400D93D93 /* MTGCard.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -201,10 +210,13 @@
 				BF1E2E4525F95C9B00888984 /* OCRScanView.swift in Sources */,
 				BF1E2E2425F9254100888984 /* ViewController.swift in Sources */,
 				BFDC7E6F2601461400D93D93 /* BodyLabel.swift in Sources */,
+				BFDC7E762601478B00D93D93 /* MTGError.swift in Sources */,
 				BF1E2E4025F93EC000888984 /* AlertController.swift in Sources */,
+				BFDC7E722601469800D93D93 /* NetworkManager.swift in Sources */,
 				BFDC7E6B260145EF00D93D93 /* SecondaryTitleLabel.swift in Sources */,
 				BF1E2E2025F9254100888984 /* AppDelegate.swift in Sources */,
 				BF1E2E2225F9254100888984 /* SceneDelegate.swift in Sources */,
+				BFDC7E792601484400D93D93 /* MTGCard.swift in Sources */,
 				BFDC7E67260145A000D93D93 /* TitleLabel.swift in Sources */,
 				BF1E2E3825F939B200888984 /* CardComponent.swift in Sources */,
 				BFDC7E642600229C00D93D93 /* CardDetailView.swift in Sources */,
