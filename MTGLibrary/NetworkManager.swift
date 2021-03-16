@@ -19,7 +19,7 @@ class NetworkManager {
     
     func getCards(for setCode: String, setNumber: String, completed: @escaping(Result<MTGCard, MTGError>) -> Void) {
         let endPoint = baseURL + "\(setCode)/\(setNumber)"
-        
+        print(endPoint)
         guard let url = URL(string: endPoint) else {
             completed(Result.failure(.invalidCardSetCode))
             return

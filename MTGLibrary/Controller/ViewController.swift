@@ -48,6 +48,22 @@ class ViewController: UIViewController {
         configureButtons()
     }
     
+    func getCardInfo(setCode: String, setNumber: String) {
+        NetworkManager.shared.getCards(for: setCode, setNumber: setNumber) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let mtgCard):
+                print(mtgCard.oracle_text)
+            
+            case .failure(let error):
+                
+                print("Result failed: " + error.localizedDescription)
+            }
+            
+        }
+    }
+    
     func configureButtons(){
         OCRScanview.takePhotoButton.addTarget(self, action: #selector(takePhoto(_:)), for: .touchUpInside )
         OCRScanview.choosePhotoButton.addTarget(self, action: #selector(choosePhoto(_:)), for: .touchUpInside)
@@ -119,8 +135,13 @@ class ViewController: UIViewController {
             if setComponent.text.count >= 3 {
                 self.OCRScanview.setLabel.text = "\(setComponent.text.prefix(3))"
             }
+            
+            print("got to right before funciton call")
+            self.getCardInfo(setCode: self.OCRScanview.setLabel.text.lowercased(), setNumber: "6")
         }
     }
+    
+    
 
     
 }
