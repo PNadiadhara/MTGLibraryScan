@@ -19,5 +19,7 @@ class CardDetailView: UIView {
     
     
     
+    
+    
 
 }

@@ -44,6 +44,7 @@ class ViewController: UIViewController {
         view.backgroundColor = .blue
         view.addSubview(OCRScanview)
         
+        
         OCRScanview.nameLabel.text = ""
         configureButtons()
     }
