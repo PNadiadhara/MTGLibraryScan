@@ -24,6 +24,7 @@ class OracleTextView: UITextView {
         
         // Customization
         autocorrectionType = .no
+        isEditable = false
         backgroundColor = .secondarySystemBackground
         textColor = .secondaryLabel
         font = UIFont.preferredFont(forTextStyle: .body)

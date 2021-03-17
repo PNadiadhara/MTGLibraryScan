@@ -11,11 +11,9 @@ class CardDetailView: UIView {
 
     let nameLabel = TitleLabel(textAlignment: .center, fontSize: 14)
     
-    var cardImage: UIImageView = {
-       let iv = UIImageView()
-        
-        return iv
-    }()
+    
+    let cardImage = CardDetailImageView(frame: .zero)
+    
     
     
     
