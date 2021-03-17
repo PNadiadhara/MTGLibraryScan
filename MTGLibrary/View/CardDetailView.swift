@@ -9,18 +9,14 @@ import UIKit
 
 class CardDetailView: UIView {
 
-    var nameLabel: UITextView = {
-       let tv = UITextView()
-        tv.isEditable = false
-        tv.textColor = .white
-        return tv
-    }()
+    let nameLabel = TitleLabel(textAlignment: .center, fontSize: 14)
     
     var cardImage: UIImageView = {
        let iv = UIImageView()
         
         return iv
     }()
+    
     
     
 

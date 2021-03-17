@@ -137,11 +137,15 @@ class ViewController: UIViewController {
             }
             
             print("got to right before funciton call")
-            self.getCardInfo(setCode: self.OCRScanview.setLabel.text.lowercased(), setNumber: "6")
+            print(self.removeLeadingZeros(setNumber: self.OCRScanview.setNumberLabel.text))
+            self.getCardInfo(setCode: self.OCRScanview.setLabel.text.lowercased(), setNumber: self.removeLeadingZeros(setNumber: self.OCRScanview.setNumberLabel.text) )
         }
     }
     
-    
+    func removeLeadingZeros(setNumber: String) -> String {
+        var temp = Int(setNumber) ?? 0
+        return String(temp)
+    }
 
     
 }

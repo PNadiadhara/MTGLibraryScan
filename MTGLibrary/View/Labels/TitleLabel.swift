@@ -8,7 +8,6 @@
 import UIKit
 
 class TitleLabel: UILabel {
-    class GFTitleLabel: UILabel {
 
         override init(frame: CGRect) {
             super.init(frame: frame)
@@ -32,7 +31,6 @@ class TitleLabel: UILabel {
             lineBreakMode = .byTruncatingTail
             translatesAutoresizingMaskIntoConstraints = false
         }
-    }
     
 
 }

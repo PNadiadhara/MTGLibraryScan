@@ -10,6 +10,7 @@ import UIKit
 class NetworkManager {
     static let shared = NetworkManager() // Singleton
     // API docs found @ https://scryfall.com/docs/api/cards/collector
+    // NOTE: API REQUIRES SETCODE LOWERCASED AND SETNUMBER W/O LEADING ZEROS
     private let baseURL = "https://api.scryfall.com/cards/"
     let cache = NSCache<NSString, UIImage>()
     
