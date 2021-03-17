@@ -21,6 +21,7 @@
 		BF3F18D12602A9FC000B0AF8 /* CardDetailImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3F18D02602A9FC000B0AF8 /* CardDetailImageView.swift */; };
 		BF3F18D72602B19F000B0AF8 /* MTGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3F18D62602B19F000B0AF8 /* MTGButton.swift */; };
 		BF3F18DC2602B20A000B0AF8 /* MTGTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3F18DB2602B20A000B0AF8 /* MTGTextField.swift */; };
+		BF3F18E12602BFA8000B0AF8 /* AddMultipleSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3F18E02602BFA8000B0AF8 /* AddMultipleSubviews.swift */; };
 		BFDC7E642600229C00D93D93 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC7E632600229C00D93D93 /* CardDetailView.swift */; };
 		BFDC7E67260145A000D93D93 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC7E66260145A000D93D93 /* TitleLabel.swift */; };
 		BFDC7E6B260145EF00D93D93 /* SecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC7E6A260145EF00D93D93 /* SecondaryTitleLabel.swift */; };
@@ -47,6 +48,7 @@
 		BF3F18D02602A9FC000B0AF8 /* CardDetailImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailImageView.swift; sourceTree = "<group>"; };
 		BF3F18D62602B19F000B0AF8 /* MTGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGButton.swift; sourceTree = "<group>"; };
 		BF3F18DB2602B20A000B0AF8 /* MTGTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGTextField.swift; sourceTree = "<group>"; };
+		BF3F18E02602BFA8000B0AF8 /* AddMultipleSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMultipleSubviews.swift; sourceTree = "<group>"; };
 		BFDC7E632600229C00D93D93 /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
 		BFDC7E66260145A000D93D93 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		BFDC7E6A260145EF00D93D93 /* SecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryTitleLabel.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				BF1E2E3F25F93EC000888984 /* AlertController.swift */,
+				BF3F18E02602BFA8000B0AF8 /* AddMultipleSubviews.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			files = (
 				BF1E2E4525F95C9B00888984 /* OCRScanView.swift in Sources */,
 				BF1E2E2425F9254100888984 /* ViewController.swift in Sources */,
+				BF3F18E12602BFA8000B0AF8 /* AddMultipleSubviews.swift in Sources */,
 				BF3F18DC2602B20A000B0AF8 /* MTGTextField.swift in Sources */,
 				BF3D31E8260298D80055ACEF /* OracleTextView.swift in Sources */,
 				BFDC7E6F2601461400D93D93 /* BodyLabel.swift in Sources */,

@@ -62,11 +62,11 @@ class OCRScanView: UIView {
         addSubview(takePhotoButton)
         
         
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        setLabel.translatesAutoresizingMaskIntoConstraints = false
-        setNumberLabel.translatesAutoresizingMaskIntoConstraints = false
-        choosePhotoButton.translatesAutoresizingMaskIntoConstraints = false
-        takePhotoButton.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel           .translatesAutoresizingMaskIntoConstraints = false
+        setLabel            .translatesAutoresizingMaskIntoConstraints = false
+        setNumberLabel      .translatesAutoresizingMaskIntoConstraints = false
+        choosePhotoButton   .translatesAutoresizingMaskIntoConstraints = false
+        takePhotoButton     .translatesAutoresizingMaskIntoConstraints = false
         
         nameLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 11).isActive = true
         nameLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 11).isActive = true
