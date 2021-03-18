@@ -8,11 +8,16 @@
 import UIKit
 
 class CardDetailViewController: UIViewController {
+    
+    let cardDetailView = CardDetailView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        view.backgroundColor = .systemOrange
+        view.addSubview(cardDetailView)
+        
+        cardDetailView.nameLabel.text = "Test Text"
     }
     
 

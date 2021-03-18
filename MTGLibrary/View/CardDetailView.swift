@@ -26,6 +26,8 @@ class CardDetailView: UIView {
     }
     
     private func setConstraints() {
+        addSubviews(nameLabel,cardImage)
+        
         nameLabel           .translatesAutoresizingMaskIntoConstraints = false
         cardImage           .translatesAutoresizingMaskIntoConstraints = false
         oracleTextView      .translatesAutoresizingMaskIntoConstraints = false
@@ -35,10 +37,24 @@ class CardDetailView: UIView {
         
         
         
+        NSLayoutConstraint.activate([
+            nameLabel.topAnchor.constraint(equalTo: self.topAnchor),
+            nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            nameLabel.heightAnchor.constraint(equalToConstant: 20),
+            
+            cardImage.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 4),
+            cardImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            cardImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            cardImage.widthAnchor.constraint(equalToConstant: 540),
+            cardImage.heightAnchor.constraint(equalToConstant: 690)
+
+        ])
+        
     }
     
     
-    
+   
     
     
     
