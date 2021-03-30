@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     let OCRScanview = OCRScanView()
     var image: UIImage?
+    var mtgCard: MTGCard!
 
     
     @IBAction func choosePhoto(_ sender: Any) {
@@ -55,6 +56,7 @@ class ViewController: UIViewController {
             
             switch result {
             case .success(let mtgCard):
+                self.mtgCard = mtgCard
                 print(mtgCard.oracle_text)
             
             case .failure(let error):
@@ -139,15 +141,30 @@ class ViewController: UIViewController {
             
             print("got to right before funciton call")
             print(self.removeLeadingZeros(setNumber: self.OCRScanview.setNumberLabel.text))
-            self.getCardInfo(setCode: self.OCRScanview.setLabel.text.lowercased(), setNumber: self.removeLeadingZeros(setNumber: self.OCRScanview.setNumberLabel.text) )
+            
+            //self.getCardInfo(setCode: self.OCRScanview.setLabel.text.lowercased(), setNumber: self.removeLeadingZeros(setNumber: self.OCRScanview.setNumberLabel.text) )
+            let setCode = self.OCRScanview.setLabel.text.lowercased()
+            let setNumbber = self.removeLeadingZeros(setNumber: self.OCRScanview.setNumberLabel.text)
+        
+            self.pushCardDetailViewController(magicCard: self.mtgCard)
+            
         }
     }
     
     func removeLeadingZeros(setNumber: String) -> String {
-        var temp = Int(setNumber) ?? 0
+        let temp = Int(setNumber) ?? 0
         return String(temp)
     }
 
+    func pushCardDetailViewController(magicCard: MTGCard) {
+        let cardDetailVC = CardDetailViewController()
+//        cardDetailVC.setNameCode = setNameCode
+//        cardDetailVC.setNumberCode = setNumberCode
+        cardDetailVC.magicCard = magicCard
+        cardDetailVC.modalPresentationStyle = .fullScreen
+        present(cardDetailVC, animated: true)
+        print("push code ran")
+    }
     
 }
 
