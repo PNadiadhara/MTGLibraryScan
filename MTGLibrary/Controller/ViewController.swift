@@ -50,21 +50,25 @@ class ViewController: UIViewController {
         configureButtons()
     }
     
-    func getCardInfo(setCode: String, setNumber: String) {
+    func getCardInfo(setCode: String, setNumber: String) -> MTGCard {
         NetworkManager.shared.getCards(for: setCode, setNumber: setNumber) { [weak self] result in
             guard let self = self else { return }
             
             switch result {
-            case .success(let mtgCard):
-                self.mtgCard = mtgCard
-                print(mtgCard.oracle_text)
+            case .success(let mtgCardAPI):
+                self.mtgCard = mtgCardAPI
+                print(self.mtgCard.oracle_text)
+                
             
             case .failure(let error):
                 
                 print("Result failed: " + error.localizedDescription)
+                
+                
             }
             
         }
+        return mtgCard
     }
     
     func configureButtons(){
@@ -145,6 +149,7 @@ class ViewController: UIViewController {
             //self.getCardInfo(setCode: self.OCRScanview.setLabel.text.lowercased(), setNumber: self.removeLeadingZeros(setNumber: self.OCRScanview.setNumberLabel.text) )
             let setCode = self.OCRScanview.setLabel.text.lowercased()
             let setNumbber = self.removeLeadingZeros(setNumber: self.OCRScanview.setNumberLabel.text)
+            self.getCardInfo(setCode: setCode, setNumber: setNumbber)
         
             self.pushCardDetailViewController(magicCard: self.mtgCard)
             
@@ -165,7 +170,7 @@ class ViewController: UIViewController {
         present(cardDetailVC, animated: true)
         print("push code ran")
     }
-    
+
 }
 
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

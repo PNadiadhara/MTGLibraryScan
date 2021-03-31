@@ -26,6 +26,8 @@ class CardDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         DispatchQueue.main.async {
             self.getCardInfo(setCode: self.setNameCode, setNumber: self.setNumberCode)
             
@@ -61,6 +63,8 @@ class CardDetailViewController: UIViewController {
             
         }
     }
+    
+    
     
 
    
