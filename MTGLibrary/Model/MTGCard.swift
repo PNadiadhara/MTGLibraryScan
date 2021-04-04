@@ -28,6 +28,7 @@ struct MTGCard: Codable {
     let set: String
     let set_name: String
     let rarity: String?
+    let collector_number: String
     let artist: String
     let prices : Price
       

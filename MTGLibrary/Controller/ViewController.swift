@@ -14,7 +14,11 @@ class ViewController: UIViewController {
     
     let OCRScanview = OCRScanView()
     var image: UIImage?
-    var mtgCard: MTGCard!
+    var mtgCard: MTGCard! {
+        didSet {
+            self.pushCardDetailViewController(magicCard: self.mtgCard)
+        }
+    }
 
     
     @IBAction func choosePhoto(_ sender: Any) {
@@ -50,7 +54,7 @@ class ViewController: UIViewController {
         configureButtons()
     }
     
-    func getCardInfo(setCode: String, setNumber: String) -> MTGCard {
+    func getCardInfo(setCode: String, setNumber: String) {
         NetworkManager.shared.getCards(for: setCode, setNumber: setNumber) { [weak self] result in
             guard let self = self else { return }
             
@@ -68,7 +72,7 @@ class ViewController: UIViewController {
             }
             
         }
-        return mtgCard
+        //return mtgCard
     }
     
     func configureButtons(){
@@ -151,7 +155,7 @@ class ViewController: UIViewController {
             let setNumbber = self.removeLeadingZeros(setNumber: self.OCRScanview.setNumberLabel.text)
             self.getCardInfo(setCode: setCode, setNumber: setNumbber)
         
-            self.pushCardDetailViewController(magicCard: self.mtgCard)
+            //self.pushCardDetailViewController(magicCard: self.mtgCard)
             
         }
     }

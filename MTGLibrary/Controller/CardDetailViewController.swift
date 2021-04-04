@@ -8,6 +8,7 @@
 import UIKit
 
 class CardDetailViewController: UIViewController {
+   
     
     let cardDetailView = CardDetailView()
 
@@ -29,7 +30,7 @@ class CardDetailViewController: UIViewController {
         
         
         DispatchQueue.main.async {
-            self.getCardInfo(setCode: self.setNameCode, setNumber: self.setNumberCode)
+            self.getCardInfo(setCode: self.magicCard.set, setNumber: self.magicCard.collector_number)
             
         }
         
