@@ -21,8 +21,13 @@ class CardDetailViewController: UIViewController {
     //    }
     public var magicCard : MTGCard!{
         didSet {
-            self.cardDetailView.cardImage.downloadImage(fromURL: imgURL)
-            self.cardDetailView.nameLabel.text = magicCard.name
+            
+            DispatchQueue.main.async {
+                self.cardDetailView.nameLabel.text = self.magicCard.name
+                self.cardDetailView.cardImage.downloadImage(fromURL: self.magicCard.image_uris.art_crop)
+                self.cardDetailView.oracleTextView.text = self.magicCard.oracle_text
+            }
+            
         }
     }
     
