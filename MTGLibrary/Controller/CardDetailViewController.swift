@@ -15,19 +15,7 @@ class CardDetailViewController: UIViewController {
     public var setNameCode: String!
     public var setNumberCode: String!
     var imgURL : String = ""
-    public var magicCard : MTGCard!{
-        didSet {
-            
-            DispatchQueue.main.async {
-                self.cardDetailView.nameLabel.text = self.magicCard.name
-                self.cardDetailView.cardImage.downloadImage(fromURL: self.magicCard.image_uris.art_crop)
-                self.cardDetailView.oracleTextView.text = self.magicCard.oracle_text
-            }
-            
-        }
-    }
-    
-    
+    public var magicCard : MTGCard!
     
     
     override func viewDidLoad() {
@@ -43,7 +31,7 @@ class CardDetailViewController: UIViewController {
         
         // "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/8/1/81e0d739-990f-4ba5-b456-165c033014cf.jpg?1599707370"
         
-    
+        
     }
     
     func getCardInfo(setCode: String, setNumber: String) {
@@ -59,6 +47,11 @@ class CardDetailViewController: UIViewController {
                 //self.imgURL = mtgCard.image_uris.art_crop
                 //self.cardDetailView.nameLabel.text = mtgCard.name
                 self.magicCard = mtgCard
+                DispatchQueue.main.async {
+                    self.cardDetailView.nameLabel.text = self.magicCard.name
+                    self.cardDetailView.cardImage.downloadImage(fromURL: self.magicCard.image_uris.art_crop)
+                    self.cardDetailView.oracleTextView.text = self.magicCard.oracle_text
+                }
                 
                 
             case .failure(let error):
