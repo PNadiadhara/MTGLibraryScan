@@ -8,35 +8,36 @@
 import UIKit
 
 class CardDetailViewController: UIViewController {
-   
+    
     
     let cardDetailView = CardDetailView()
-
+    
     public var setNameCode: String!
     public var setNumberCode: String!
-    public var magicCard : MTGCard! {
+    //    {
+    //        didSet {
+    //            getCardInfo(setCode: setNameCode, setNumber: setNumberCode)
+    //        }
+    //    }
+    public var magicCard : MTGCard!{
         didSet {
-            self.cardDetailView.cardImage.downloadImage(fromURL: magicCard.image_uris.art_crop)
-            
+            self.cardDetailView.cardImage.downloadImage(fromURL: imgURL)
+            self.cardDetailView.nameLabel.text = magicCard.name
         }
     }
     
     var imgURL : String = ""
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         
-        DispatchQueue.main.async {
-            self.getCardInfo(setCode: self.magicCard.set, setNumber: self.magicCard.collector_number)
-            
-        }
-        
-        
         view.backgroundColor = .systemOrange
         view.addSubview(cardDetailView)
+        
+        getCardInfo(setCode: setNameCode, setNumber: setNumberCode)
         
         
         
@@ -51,23 +52,27 @@ class CardDetailViewController: UIViewController {
             
             switch result {
             case .success(let mtgCard):
-                self.magicCard = mtgCard
+                
+                print("CardDetailVC")
                 print(mtgCard.oracle_text)
                 print(mtgCard.image_uris.art_crop)
-                self.imgURL = self.magicCard.image_uris.art_crop
-                self.cardDetailView.nameLabel.text = self.magicCard.name
-            
+                //self.imgURL = mtgCard.image_uris.art_crop
+                //self.cardDetailView.nameLabel.text = mtgCard.name
+                self.magicCard = mtgCard
+                
+                
             case .failure(let error):
                 
                 print("Result failed: " + error.localizedDescription)
             }
             
         }
+        
     }
     
     
     
-
-   
-
+    
+    
+    
 }

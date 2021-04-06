@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     var image: UIImage?
     var mtgCard: MTGCard! {
         didSet {
-            self.pushCardDetailViewController(magicCard: self.mtgCard)
+            //self.pushCardDetailViewController(magicCard: self.mtgCard)
         }
     }
 
@@ -61,7 +61,7 @@ class ViewController: UIViewController {
             switch result {
             case .success(let mtgCardAPI):
                 self.mtgCard = mtgCardAPI
-                print(self.mtgCard.oracle_text)
+                //print(self.mtgCard.oracle_text)
                 
             
             case .failure(let error):
@@ -152,10 +152,10 @@ class ViewController: UIViewController {
             
             //self.getCardInfo(setCode: self.OCRScanview.setLabel.text.lowercased(), setNumber: self.removeLeadingZeros(setNumber: self.OCRScanview.setNumberLabel.text) )
             let setCode = self.OCRScanview.setLabel.text.lowercased()
-            let setNumbber = self.removeLeadingZeros(setNumber: self.OCRScanview.setNumberLabel.text)
-            self.getCardInfo(setCode: setCode, setNumber: setNumbber)
+            let setNumber = self.removeLeadingZeros(setNumber: self.OCRScanview.setNumberLabel.text)
+            //self.getCardInfo(setCode: setCode, setNumber: setNumber)
         
-            //self.pushCardDetailViewController(magicCard: self.mtgCard)
+            self.pushCardDetailViewController(setName: setCode, setNumber: setNumber)
             
         }
     }
@@ -164,12 +164,12 @@ class ViewController: UIViewController {
         let temp = Int(setNumber) ?? 0
         return String(temp)
     }
-
-    func pushCardDetailViewController(magicCard: MTGCard) {
+// func pushCardDetailViewController(magicCard: MTGCard)
+    func pushCardDetailViewController(setName: String, setNumber: String) {
         let cardDetailVC = CardDetailViewController()
-//        cardDetailVC.setNameCode = setNameCode
-//        cardDetailVC.setNumberCode = setNumberCode
-        cardDetailVC.magicCard = magicCard
+        cardDetailVC.setNameCode = setName
+        cardDetailVC.setNumberCode = setNumber
+        //cardDetailVC.magicCard = magicCard
         cardDetailVC.modalPresentationStyle = .fullScreen
         present(cardDetailVC, animated: true)
         print("push code ran")
