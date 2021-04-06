@@ -30,6 +30,8 @@ class OracleTextView: UITextView {
         font = UIFont.preferredFont(forTextStyle: .body)
         layer.cornerRadius = 20
         textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        clipsToBounds = true
+        contentInset = UIEdgeInsets.zero
         
         //Shadow
         layer.shadowColor = UIColor.gray.cgColor;

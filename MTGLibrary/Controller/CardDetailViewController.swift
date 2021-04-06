@@ -14,11 +14,7 @@ class CardDetailViewController: UIViewController {
     
     public var setNameCode: String!
     public var setNumberCode: String!
-    //    {
-    //        didSet {
-    //            getCardInfo(setCode: setNameCode, setNumber: setNumberCode)
-    //        }
-    //    }
+    var imgURL : String = ""
     public var magicCard : MTGCard!{
         didSet {
             
@@ -31,16 +27,15 @@ class CardDetailViewController: UIViewController {
         }
     }
     
-    var imgURL : String = ""
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
         view.backgroundColor = .systemOrange
         view.addSubview(cardDetailView)
+        
+        cardDetailView.oracleTextView.clipsToBounds = true
         
         getCardInfo(setCode: setNameCode, setNumber: setNumberCode)
         
@@ -48,7 +43,7 @@ class CardDetailViewController: UIViewController {
         
         // "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/8/1/81e0d739-990f-4ba5-b456-165c033014cf.jpg?1599707370"
         
-        cardDetailView.oracleTextView.backgroundColor = .blue
+    
     }
     
     func getCardInfo(setCode: String, setNumber: String) {
