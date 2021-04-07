@@ -24,6 +24,8 @@
 		BF3F18D72602B19F000B0AF8 /* MTGButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3F18D62602B19F000B0AF8 /* MTGButton.swift */; };
 		BF3F18DC2602B20A000B0AF8 /* MTGTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3F18DB2602B20A000B0AF8 /* MTGTextField.swift */; };
 		BF3F18E12602BFA8000B0AF8 /* AddMultipleSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3F18E02602BFA8000B0AF8 /* AddMultipleSubviews.swift */; };
+		BF59C363261E345000E0C97D /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF59C362261E345000E0C97D /* DataPersistenceManager.swift */; };
+		BF59C368261E34B900E0C97D /* MTGCardDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF59C367261E34B900E0C97D /* MTGCardDataManager.swift */; };
 		BFDC7E642600229C00D93D93 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC7E632600229C00D93D93 /* CardDetailView.swift */; };
 		BFDC7E67260145A000D93D93 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC7E66260145A000D93D93 /* TitleLabel.swift */; };
 		BFDC7E6B260145EF00D93D93 /* SecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC7E6A260145EF00D93D93 /* SecondaryTitleLabel.swift */; };
@@ -53,6 +55,8 @@
 		BF3F18D62602B19F000B0AF8 /* MTGButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGButton.swift; sourceTree = "<group>"; };
 		BF3F18DB2602B20A000B0AF8 /* MTGTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGTextField.swift; sourceTree = "<group>"; };
 		BF3F18E02602BFA8000B0AF8 /* AddMultipleSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMultipleSubviews.swift; sourceTree = "<group>"; };
+		BF59C362261E345000E0C97D /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
+		BF59C367261E34B900E0C97D /* MTGCardDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGCardDataManager.swift; sourceTree = "<group>"; };
 		BFDC7E632600229C00D93D93 /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
 		BFDC7E66260145A000D93D93 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		BFDC7E6A260145EF00D93D93 /* SecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryTitleLabel.swift; sourceTree = "<group>"; };
@@ -94,6 +98,7 @@
 			children = (
 				BF1E2E1F25F9254100888984 /* AppDelegate.swift */,
 				BF1E2E2125F9254100888984 /* SceneDelegate.swift */,
+				BF59C365261E346500E0C97D /* Data Persistence */,
 				BF1E2E3A25F939B900888984 /* Model */,
 				BF1E2E4725F95C9F00888984 /* View */,
 				BF1E2E3525F9256100888984 /* Controller */,
@@ -181,6 +186,15 @@
 				BF3F18DB2602B20A000B0AF8 /* MTGTextField.swift */,
 			);
 			path = TextField;
+			sourceTree = "<group>";
+		};
+		BF59C365261E346500E0C97D /* Data Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				BF59C362261E345000E0C97D /* DataPersistenceManager.swift */,
+				BF59C367261E34B900E0C97D /* MTGCardDataManager.swift */,
+			);
+			path = "Data Persistence";
 			sourceTree = "<group>";
 		};
 		BFDC7E69260145C700D93D93 /* Labels */ = {
@@ -273,12 +287,14 @@
 				BFDC7E762601478B00D93D93 /* MTGError.swift in Sources */,
 				BF1E2E4025F93EC000888984 /* AlertController.swift in Sources */,
 				BFDC7E722601469800D93D93 /* NetworkManager.swift in Sources */,
+				BF59C363261E345000E0C97D /* DataPersistenceManager.swift in Sources */,
 				BFDC7E6B260145EF00D93D93 /* SecondaryTitleLabel.swift in Sources */,
 				BF1E2E2025F9254100888984 /* AppDelegate.swift in Sources */,
 				BF1E2E2225F9254100888984 /* SceneDelegate.swift in Sources */,
 				BF3656A82612B90A00A5AF1B /* CardCollectionViewCell.swift in Sources */,
 				BFDC7E792601484400D93D93 /* MTGCard.swift in Sources */,
 				BFDC7E67260145A000D93D93 /* TitleLabel.swift in Sources */,
+				BF59C368261E34B900E0C97D /* MTGCardDataManager.swift in Sources */,
 				BF1E2E3825F939B200888984 /* CardComponent.swift in Sources */,
 				BFDC7E642600229C00D93D93 /* CardDetailView.swift in Sources */,
 				BF3F18D72602B19F000B0AF8 /* MTGButton.swift in Sources */,
