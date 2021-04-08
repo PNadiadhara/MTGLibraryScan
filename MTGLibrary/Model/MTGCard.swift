@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct MTGCard: Codable {
+struct MTGCard: Codable, Equatable {
+    // Set name and number are unique enough to check for copies that already exist in user's colleciton. Currently reprints in different sets will count as unique copies
+    static func == (lhs: MTGCard, rhs: MTGCard) -> Bool {
+        return lhs.set == rhs.set && lhs.set_name == rhs.set_name
+    }
+    
     let object: String
     let name: String
     let scryfall_uri: String

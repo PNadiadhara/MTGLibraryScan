@@ -16,6 +16,7 @@ class CardDetailViewController: UIViewController {
     public var setNumberCode: String!
     var imgURL : String = ""
     public var magicCard : MTGCard!
+    var collectedCards = MTGCardDataManager.getMTGCards()
     
     
     override func viewDidLoad() {
@@ -26,6 +27,8 @@ class CardDetailViewController: UIViewController {
         cardDetailView.oracleTextView.clipsToBounds = true
         
         getCardInfo(setCode: setNameCode, setNumber: setNumberCode)
+        
+        configureSaveButton()
         
         
         
@@ -44,8 +47,9 @@ class CardDetailViewController: UIViewController {
                 print("CardDetailVC")
                 print(mtgCard.oracle_text)
                 print(mtgCard.image_uris.art_crop)
-                //self.imgURL = mtgCard.image_uris.art_crop
-                //self.cardDetailView.nameLabel.text = mtgCard.name
+                
+                
+                
                 self.magicCard = mtgCard
                 DispatchQueue.main.async {
                     self.cardDetailView.nameLabel.text = self.magicCard.name
@@ -58,14 +62,38 @@ class CardDetailViewController: UIViewController {
                 
                 print("Result failed: " + error.localizedDescription)
             }
-            
+        }
+        
+        func checkForCopies(magicCard: MTGCard) -> Bool {
+            if collectedCards.contains(magicCard) {
+                return true
+            }
+            return false
         }
         
     }
     
+    func configureSaveButton() {
+        cardDetailView.saveButton.addTarget(self, action: #selector(saveButtonPressed), for: .touchUpInside)
+    }
     
-    
-    
+    @objc private func saveButtonPressed() {
+        if let newMTGCard = magicCard {
+            if collectedCards.contains(magicCard) {
+                print("Card Collection Updated")
+            } else {
+                MTGCardDataManager.addMTGCard(mtgCard: newMTGCard)
+                showAlert(title: nil, message: "Card Saved", actionTitle: "OK")
+                print("Card Added to colleciton")
+            }
+            MTGCardDataManager.addMTGCard(mtgCard: newMTGCard)
+            showAlert(title: nil, message: "Card Saved", actionTitle: "OK")
+            
+            print(DataPersistenceManager.getDocumentsDirectory())
+            print("save button tapped")
+            
+        }
+    }
     
     
 }

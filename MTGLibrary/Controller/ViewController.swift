@@ -14,12 +14,8 @@ class ViewController: UIViewController {
     
     let OCRScanview = OCRScanView()
     var image: UIImage?
-    var mtgCard: MTGCard! {
-        didSet {
-            //self.pushCardDetailViewController(magicCard: self.mtgCard)
-        }
-    }
-
+    var mtgCard: MTGCard!
+    var savedMTGCards = [MTGCard]()
     
     @IBAction func choosePhoto(_ sender: Any) {
         presentPhotoPicker(type: .photoLibrary)
@@ -157,6 +153,7 @@ class ViewController: UIViewController {
         
             self.pushCardDetailViewController(setName: setCode, setNumber: setNumber)
             
+            
         }
     }
     
@@ -170,8 +167,9 @@ class ViewController: UIViewController {
         cardDetailVC.setNameCode = setName
         cardDetailVC.setNumberCode = setNumber
         //cardDetailVC.magicCard = magicCard
-        cardDetailVC.modalPresentationStyle = .fullScreen
-        present(cardDetailVC, animated: true)
+        //cardDetailVC.modalPresentationStyle = .fullScreen
+        //present(cardDetailVC, animated: true)
+        navigationController?.pushViewController(cardDetailVC, animated: true)
         print("push code ran")
     }
 
