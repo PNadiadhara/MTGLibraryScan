@@ -13,6 +13,8 @@ class CardCollectionViewController: UIViewController {
     
     private var collectionView: UICollectionView?
     var image: UIImage?
+    var setCode: String = ""
+    var setNumber: String = ""
     
     lazy var textDetectionRequest: VNRecognizeTextRequest = {
         let request = VNRecognizeTextRequest(completionHandler: self.handleDectectedText)
@@ -76,6 +78,8 @@ class CardCollectionViewController: UIViewController {
         present(controller, animated: true, completion: nil)
     }
     
+    
+    
     private func handleDectectedText(request:VNRequest?, error: Error?) {
         if let error = error {
             showAlert(title: "Error", message: error.localizedDescription, actionTitle: "")
@@ -115,34 +119,40 @@ class CardCollectionViewController: UIViewController {
             }
         }
         
-        DispatchQueue.main.async {
-            //self.OCRScanview.nameLabel.text = nameComponent.text
+        DispatchQueue.main.async { [self] in
             if setNumberComponent.text.count >= 3 {
-                //self.OCRScanview.setNumberLabel.text = "\(setNumberComponent.text.prefix(3))"
-                print("\(setNumberComponent.text.prefix(3))")
+                self.setNumber = "\(setNumberComponent.text.prefix(3))"
             }
             if setComponent.text.count >= 3 {
-                //self.OCRScanview.setLabel.text = "\(setComponent.text.prefix(3))"
-                print("\(setComponent.text.prefix(3))")
+                self.setCode = "\(setComponent.text.prefix(3))"
             }
+            //MARK: - Fix string for api call
+            self.setCode = self.setCode.lowercased()
+            self.setNumber =  removeLeadingZeros(setNumber: setNumber)
             
-            
-            
-            //self.getCardInfo(setCode: self.OCRScanview.setLabel.text.lowercased(), setNumber: self.removeLeadingZeros(setNumber: self.OCRScanview.setNumberLabel.text) )
-            //let setCode = self.OCRScanview.setLabel.text.lowercased()
-            //let setNumbber = self.removeLeadingZeros(setNumber: self.OCRScanview.setNumberLabel.text)
-        
-           // self.pushCardDetailViewController(magicCard: self.mtgCard)
-            
+            self.pushCardDetailViewController(setName: self.setCode, setNumber: self.setNumber)
         }
+        
+        
     }
     
-    func removeLeadingZeros(setNumber: String) -> String {
+    private func removeLeadingZeros(setNumber: String) -> String {
         let temp = Int(setNumber) ?? 0
         return String(temp)
     }
     
-    func processImage() {
+    private func pushCardDetailViewController(setName: String, setNumber: String) {
+        let cardDetailVC = CardDetailViewController()
+        cardDetailVC.setNameCode = setName
+        cardDetailVC.setNumberCode = setNumber
+        //cardDetailVC.magicCard = magicCard
+        //cardDetailVC.modalPresentationStyle = .fullScreen
+        //present(cardDetailVC, animated: true)
+        navigationController?.pushViewController(cardDetailVC, animated: true)
+        print("push code ran")
+    }
+    
+    private func processImage() {
         guard let image  = image, let cgImage = image.cgImage else {return}
         
         let requests = [textDetectionRequest]
