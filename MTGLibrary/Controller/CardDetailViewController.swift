@@ -54,6 +54,7 @@ class CardDetailViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.cardDetailView.nameLabel.text = self.magicCard.name
                     self.cardDetailView.cardImage.downloadImage(fromURL: self.magicCard.image_uris.art_crop)
+                    
                     self.cardDetailView.oracleTextView.text = self.magicCard.oracle_text
                 }
                 

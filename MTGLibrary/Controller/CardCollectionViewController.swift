@@ -15,6 +15,11 @@ class CardCollectionViewController: UIViewController {
     var image: UIImage?
     var setCode: String = ""
     var setNumber: String = ""
+    var savedMTGCards = [MTGCard]() {
+        didSet {
+            self.collectionView?.reloadData()
+        }
+    }
     
     lazy var textDetectionRequest: VNRecognizeTextRequest = {
         let request = VNRecognizeTextRequest(completionHandler: self.handleDectectedText)
@@ -29,6 +34,10 @@ class CardCollectionViewController: UIViewController {
         configureNavBar()
         configureCollectionView()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        savedMTGCards = MTGCardDataManager.getMTGCards()
     }
     
     func configureNavBar() {
@@ -152,6 +161,16 @@ class CardCollectionViewController: UIViewController {
         print("push code ran")
     }
     
+    private func pushSavedCardDetailViewController(mtgCard: MTGCard) {
+        let cardDetailVC = CardDetailViewController()
+        cardDetailVC.setNameCode = mtgCard.set
+        cardDetailVC.setNumberCode = mtgCard.collector_number
+        //cardDetailVC.magicCard = magicCard
+        //cardDetailVC.modalPresentationStyle = .fullScreen
+        //present(cardDetailVC, animated: true)
+        navigationController?.pushViewController(cardDetailVC, animated: true)
+        print("pushed vc from saved MTGCard object")
+    }
     private func processImage() {
         guard let image  = image, let cgImage = image.cgImage else {return}
         
@@ -170,18 +189,22 @@ class CardCollectionViewController: UIViewController {
 }
 
 extension CardCollectionViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        pushSavedCardDetailViewController(mtgCard: savedMTGCards[indexPath.row])
+    }
     
 }
 
 extension CardCollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 60
+        return savedMTGCards.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCollectionViewCell.identifier, for: indexPath) as! CardCollectionViewCell
-        cell.configure(label: "CardName \(indexPath.row)" )
+        cell.configure(label: "\(savedMTGCards[indexPath.row].name)")
+        
+        
         return cell
     }
  

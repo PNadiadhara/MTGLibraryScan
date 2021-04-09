@@ -10,7 +10,9 @@ import UIKit
 class CardCollectionViewCell: UICollectionViewCell {
     static let identifier = "CardCollectionViewCell"
     
-    private let imageView: UIImageView = {
+    let cache = NetworkManager.shared.cache
+    
+    let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "house")
         imageView.contentMode = .scaleAspectFit
@@ -42,24 +44,29 @@ class CardCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         
         nameLabel.frame = CGRect(x: 5,
-                             y: contentView.frame.size.height - 50,
-                             width: contentView.frame.size.width - 10,
-                             height: 50)
+                                 y: contentView.frame.size.height - 50,
+                                 width: contentView.frame.size.width - 10,
+                                 height: 50)
         imageView.frame = CGRect(x: 5,
-                             y: 0,
-                             width: contentView.frame.size.width - 10,
-                             height: contentView.frame.size.height - 50)
+                                 y: 0,
+                                 width: contentView.frame.size.width - 10,
+                                 height: contentView.frame.size.height - 50)
     }
     
-    public func configure(label: String){
+    public func configure(label: String) {
         nameLabel.text = label
         // Update to include image
+        //imageView.image = NetworkManager.
+        
+        
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         nameLabel.text = nil
     }
+    
+    
     
 }
 
