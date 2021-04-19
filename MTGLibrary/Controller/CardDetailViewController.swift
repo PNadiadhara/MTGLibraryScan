@@ -60,13 +60,7 @@ class CardDetailViewController: UIViewController {
             
             switch result {
             case .success(let mtgCard):
-                
-                print("CardDetailVC")
-                print(mtgCard.oracle_text)
-                print(mtgCard.image_uris.art_crop)
-                
-                
-                
+   
                 self.magicCard = mtgCard
                 DispatchQueue.main.async {
                     self.cardDetailView.nameLabel.text = self.magicCard.name
@@ -76,7 +70,7 @@ class CardDetailViewController: UIViewController {
                     self.title = self.magicCard.name
                     if self.collectedCards.contains(self.magicCard) {
                         self.cardDetailView.saveButton.set(backgroundColor: .systemTeal, title: "Update")
-                        print("Card Collection Updated")
+
                     }
                 }
                 
@@ -108,13 +102,13 @@ class CardDetailViewController: UIViewController {
             } else {
                 MTGCardDataManager.addMTGCard(mtgCard: newMTGCard)
                 showAlert(title: nil, message: "Card Saved", actionTitle: "OK")
-                print("Card Added to colleciton")
+                
             }
             // MTGCardDataManager.addMTGCard(mtgCard: newMTGCard)
             showAlert(title: nil, message: "Saved", actionTitle: "OK")
             
             print(DataPersistenceManager.getDocumentsDirectory())
-            print("save button tapped")
+
             
         }
     }
