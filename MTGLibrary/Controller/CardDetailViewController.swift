@@ -29,12 +29,29 @@ class CardDetailViewController: UIViewController {
         getCardInfo(setCode: setNameCode, setNumber: setNumberCode)
         
         configureSaveButton()
-        
+        configureNavBar()
         
         
         // "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/8/1/81e0d739-990f-4ba5-b456-165c033014cf.jpg?1599707370"
         
         
+    }
+    
+    func configureNavBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteCard))
+    }
+    
+    @objc func deleteCard() {
+        if collectedCards.contains(magicCard) {
+            let index = collectedCards.firstIndex {
+                $0 == magicCard
+            }
+            showDestructionAlert(title: nil, message: "Delete Card?", style: .alert, handler: {_ in
+                MTGCardDataManager.deleteMTGCard(atIndex: index!)
+                self.navigationController?.popToRootViewController(animated: true)
+            })
+
+        }
     }
     
     func getCardInfo(setCode: String, setNumber: String) {
@@ -56,6 +73,11 @@ class CardDetailViewController: UIViewController {
                     self.cardDetailView.cardImage.downloadImage(fromURL: self.magicCard.image_uris.art_crop)
                     
                     self.cardDetailView.oracleTextView.text = self.magicCard.oracle_text
+                    self.title = self.magicCard.name
+                    if self.collectedCards.contains(self.magicCard) {
+                        self.cardDetailView.saveButton.set(backgroundColor: .systemTeal, title: "Update")
+                        print("Card Collection Updated")
+                    }
                 }
                 
                 
@@ -81,14 +103,15 @@ class CardDetailViewController: UIViewController {
     @objc private func saveButtonPressed() {
         if let newMTGCard = magicCard {
             if collectedCards.contains(magicCard) {
+                
                 print("Card Collection Updated")
             } else {
                 MTGCardDataManager.addMTGCard(mtgCard: newMTGCard)
                 showAlert(title: nil, message: "Card Saved", actionTitle: "OK")
                 print("Card Added to colleciton")
             }
-            MTGCardDataManager.addMTGCard(mtgCard: newMTGCard)
-            showAlert(title: nil, message: "Card Saved", actionTitle: "OK")
+            // MTGCardDataManager.addMTGCard(mtgCard: newMTGCard)
+            showAlert(title: nil, message: "Saved", actionTitle: "OK")
             
             print(DataPersistenceManager.getDocumentsDirectory())
             print("save button tapped")

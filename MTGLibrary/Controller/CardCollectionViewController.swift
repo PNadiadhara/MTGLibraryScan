@@ -191,6 +191,7 @@ class CardCollectionViewController: UIViewController {
 extension CardCollectionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         pushSavedCardDetailViewController(mtgCard: savedMTGCards[indexPath.row])
+        collectionView.deleteItems(at: [indexPath])
     }
     
 }
@@ -207,6 +208,8 @@ extension CardCollectionViewController: UICollectionViewDataSource {
         
         return cell
     }
+    
+    
  
 }
 
@@ -220,4 +223,6 @@ extension CardCollectionViewController: UIImagePickerControllerDelegate, UINavig
         image = info[.originalImage] as? UIImage
         processImage()
     }
+    
+    
 }
