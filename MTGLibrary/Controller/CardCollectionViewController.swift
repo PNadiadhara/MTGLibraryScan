@@ -154,9 +154,7 @@ class CardCollectionViewController: UIViewController {
         let cardDetailVC = CardDetailViewController()
         cardDetailVC.setNameCode = setName
         cardDetailVC.setNumberCode = setNumber
-        //cardDetailVC.magicCard = magicCard
-        //cardDetailVC.modalPresentationStyle = .fullScreen
-        //present(cardDetailVC, animated: true)
+        
         navigationController?.pushViewController(cardDetailVC, animated: true)
         print("push code ran")
     }
@@ -165,9 +163,7 @@ class CardCollectionViewController: UIViewController {
         let cardDetailVC = CardDetailViewController()
         cardDetailVC.setNameCode = mtgCard.set
         cardDetailVC.setNumberCode = mtgCard.collector_number
-        //cardDetailVC.magicCard = magicCard
-        //cardDetailVC.modalPresentationStyle = .fullScreen
-        //present(cardDetailVC, animated: true)
+
         navigationController?.pushViewController(cardDetailVC, animated: true)
         print("pushed vc from saved MTGCard object")
     }

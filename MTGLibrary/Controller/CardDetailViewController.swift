@@ -50,7 +50,7 @@ class CardDetailViewController: UIViewController {
                 MTGCardDataManager.deleteMTGCard(atIndex: index!)
                 self.navigationController?.popToRootViewController(animated: true)
             })
-
+            
         }
     }
     
@@ -60,7 +60,7 @@ class CardDetailViewController: UIViewController {
             
             switch result {
             case .success(let mtgCard):
-   
+                
                 self.magicCard = mtgCard
                 DispatchQueue.main.async {
                     self.cardDetailView.nameLabel.text = self.magicCard.name
@@ -70,15 +70,20 @@ class CardDetailViewController: UIViewController {
                     self.title = self.magicCard.name
                     if self.collectedCards.contains(self.magicCard) {
                         self.cardDetailView.saveButton.set(backgroundColor: .systemTeal, title: "Update")
-
+                        
                     }
                 }
                 
                 
             case .failure(let error):
-                
-                print("Result failed: " + error.localizedDescription)
+                DispatchQueue.main.async {
+                    self.showAlert(title: "Error", message: "Please Try Again", style: .alert, handler: {_ in
+                        self.navigationController?.popToRootViewController(animated: true)
+                    })
+                    print("Result failed: " + error.localizedDescription)
+                }
             }
+            
         }
         
         func checkForCopies(magicCard: MTGCard) -> Bool {
@@ -108,7 +113,7 @@ class CardDetailViewController: UIViewController {
             showAlert(title: nil, message: "Saved", actionTitle: "OK")
             
             print(DataPersistenceManager.getDocumentsDirectory())
-
+            
             
         }
     }
