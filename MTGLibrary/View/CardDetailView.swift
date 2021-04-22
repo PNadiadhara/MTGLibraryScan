@@ -44,7 +44,7 @@ class CardDetailView: UIView {
         
         
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 30),
+            nameLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10),
             nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             nameLabel.heightAnchor.constraint(equalToConstant: 30),

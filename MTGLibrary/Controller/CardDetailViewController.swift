@@ -50,7 +50,18 @@ class CardDetailViewController: UIViewController {
                 MTGCardDataManager.deleteMTGCard(atIndex: index!)
                 self.navigationController?.popToRootViewController(animated: true)
             })
-            
+        }
+    }
+    
+    func updateCard() {
+        if collectedCards.contains(magicCard) {
+            let index = collectedCards.firstIndex {
+                $0 == magicCard
+            }
+            showDestructionAlert(title: nil, message: "Update information?", style: .alert, handler: {_ in
+                MTGCardDataManager.deleteMTGCard(atIndex: index!)
+                self.navigationController?.popToRootViewController(animated: true)
+            })
         }
     }
     
@@ -102,14 +113,14 @@ class CardDetailViewController: UIViewController {
     @objc private func saveButtonPressed() {
         if let newMTGCard = magicCard {
             if collectedCards.contains(magicCard) {
-                
+                updateCard()
+                MTGCardDataManager.addMTGCard(mtgCard: magicCard)
                 print("Card Collection Updated")
             } else {
                 MTGCardDataManager.addMTGCard(mtgCard: newMTGCard)
                 showAlert(title: nil, message: "Card Saved", actionTitle: "OK")
                 
             }
-            // MTGCardDataManager.addMTGCard(mtgCard: newMTGCard)
             showAlert(title: nil, message: "Saved", actionTitle: "OK")
             
             print(DataPersistenceManager.getDocumentsDirectory())

@@ -26,6 +26,7 @@
 		BF3F18E12602BFA8000B0AF8 /* AddMultipleSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3F18E02602BFA8000B0AF8 /* AddMultipleSubviews.swift */; };
 		BF59C363261E345000E0C97D /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF59C362261E345000E0C97D /* DataPersistenceManager.swift */; };
 		BF59C368261E34B900E0C97D /* MTGCardDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF59C367261E34B900E0C97D /* MTGCardDataManager.swift */; };
+		BF59C36B2630E2EC00E0C97D /* FlipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF59C36A2630E2EC00E0C97D /* FlipController.swift */; };
 		BFDC7E642600229C00D93D93 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC7E632600229C00D93D93 /* CardDetailView.swift */; };
 		BFDC7E67260145A000D93D93 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC7E66260145A000D93D93 /* TitleLabel.swift */; };
 		BFDC7E6B260145EF00D93D93 /* SecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC7E6A260145EF00D93D93 /* SecondaryTitleLabel.swift */; };
@@ -57,6 +58,7 @@
 		BF3F18E02602BFA8000B0AF8 /* AddMultipleSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMultipleSubviews.swift; sourceTree = "<group>"; };
 		BF59C362261E345000E0C97D /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
 		BF59C367261E34B900E0C97D /* MTGCardDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGCardDataManager.swift; sourceTree = "<group>"; };
+		BF59C36A2630E2EC00E0C97D /* FlipController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipController.swift; sourceTree = "<group>"; };
 		BFDC7E632600229C00D93D93 /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
 		BFDC7E66260145A000D93D93 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		BFDC7E6A260145EF00D93D93 /* SecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryTitleLabel.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				BF1E2E2325F9254100888984 /* ViewController.swift */,
+				BF59C36A2630E2EC00E0C97D /* FlipController.swift */,
 				BF3D31E426028EB90055ACEF /* CardDetailViewController.swift */,
 				BF3656A42612B07600A5AF1B /* CardCollectionViewController.swift */,
 			);
@@ -281,6 +284,7 @@
 				BF3656A22603FA7E00A5AF1B /* DataModel.xcdatamodeld in Sources */,
 				BF1E2E2425F9254100888984 /* ViewController.swift in Sources */,
 				BF3F18E12602BFA8000B0AF8 /* AddMultipleSubviews.swift in Sources */,
+				BF59C36B2630E2EC00E0C97D /* FlipController.swift in Sources */,
 				BF3F18DC2602B20A000B0AF8 /* MTGTextField.swift in Sources */,
 				BF3D31E8260298D80055ACEF /* OracleTextView.swift in Sources */,
 				BFDC7E6F2601461400D93D93 /* BodyLabel.swift in Sources */,
