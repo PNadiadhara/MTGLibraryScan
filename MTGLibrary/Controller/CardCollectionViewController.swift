@@ -200,6 +200,7 @@ extension CardCollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCollectionViewCell.identifier, for: indexPath) as! CardCollectionViewCell
         cell.configure(label: "\(savedMTGCards[indexPath.row].name)")
+        cell.cardImage.downloadImage(fromURL: savedMTGCards[indexPath.row].image_uris.art_crop )
         
         
         return cell

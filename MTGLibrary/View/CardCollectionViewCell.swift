@@ -21,6 +21,8 @@ class CardCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
     
+    let cardImage = CardDetailImageView(frame: .zero)
+    
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Card Name"
@@ -33,7 +35,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         contentView.backgroundColor = .systemGray
         contentView.clipsToBounds = true
-        addSubviews(imageView, nameLabel)
+        addSubviews(cardImage, nameLabel)
     }
     
     required init?(coder: NSCoder) {
@@ -47,7 +49,7 @@ class CardCollectionViewCell: UICollectionViewCell {
                                  y: contentView.frame.size.height - 50,
                                  width: contentView.frame.size.width - 10,
                                  height: 50)
-        imageView.frame = CGRect(x: 5,
+        cardImage.frame = CGRect(x: 5,
                                  y: 0,
                                  width: contentView.frame.size.width - 10,
                                  height: contentView.frame.size.height - 50)
@@ -55,10 +57,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     
     public func configure(label: String) {
         nameLabel.text = label
-        // Update to include image
-        //imageView.image = NetworkManager.
-        
-        
+
     }
     
     override func prepareForReuse() {
