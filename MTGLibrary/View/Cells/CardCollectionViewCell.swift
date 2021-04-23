@@ -28,6 +28,7 @@ class CardCollectionViewCell: UICollectionViewCell {
         label.text = "Card Name"
         label.backgroundColor = .green
         label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -45,14 +46,16 @@ class CardCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        nameLabel.frame = CGRect(x: 5,
-                                 y: contentView.frame.size.height - 50,
-                                 width: contentView.frame.size.width - 10,
-                                 height: 50)
         cardImage.frame = CGRect(x: 5,
-                                 y: 0,
+                                 y: 5,
                                  width: contentView.frame.size.width - 10,
-                                 height: contentView.frame.size.height - 50)
+                                 height: contentView.frame.size.height - 45)
+        
+        nameLabel.frame = CGRect(x: 5,
+                                 y: contentView.frame.size.height - 35,
+                                 width: contentView.frame.size.width - 10,
+                                 height: 30)
+        
     }
     
     public func configure(label: String) {

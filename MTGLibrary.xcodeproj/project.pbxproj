@@ -27,6 +27,7 @@
 		BF59C363261E345000E0C97D /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF59C362261E345000E0C97D /* DataPersistenceManager.swift */; };
 		BF59C368261E34B900E0C97D /* MTGCardDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF59C367261E34B900E0C97D /* MTGCardDataManager.swift */; };
 		BF59C36B2630E2EC00E0C97D /* FlipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF59C36A2630E2EC00E0C97D /* FlipController.swift */; };
+		BF59C37626332FD600E0C97D /* AdditionalCardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF59C37526332FD600E0C97D /* AdditionalCardDetailView.swift */; };
 		BFDC7E642600229C00D93D93 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC7E632600229C00D93D93 /* CardDetailView.swift */; };
 		BFDC7E67260145A000D93D93 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC7E66260145A000D93D93 /* TitleLabel.swift */; };
 		BFDC7E6B260145EF00D93D93 /* SecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC7E6A260145EF00D93D93 /* SecondaryTitleLabel.swift */; };
@@ -59,6 +60,7 @@
 		BF59C362261E345000E0C97D /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
 		BF59C367261E34B900E0C97D /* MTGCardDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGCardDataManager.swift; sourceTree = "<group>"; };
 		BF59C36A2630E2EC00E0C97D /* FlipController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipController.swift; sourceTree = "<group>"; };
+		BF59C37526332FD600E0C97D /* AdditionalCardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalCardDetailView.swift; sourceTree = "<group>"; };
 		BFDC7E632600229C00D93D93 /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
 		BFDC7E66260145A000D93D93 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		BFDC7E6A260145EF00D93D93 /* SecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryTitleLabel.swift; sourceTree = "<group>"; };
@@ -148,8 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				BF1E2E4425F95C9B00888984 /* OCRScanView.swift */,
-				BFDC7E632600229C00D93D93 /* CardDetailView.swift */,
-				BF3656A72612B90A00A5AF1B /* CardCollectionViewCell.swift */,
+				BF59C37826332FE700E0C97D /* CardDetailViews */,
+				BF59C36D26332E0C00E0C97D /* Cells */,
 				BF3F18D92602B1AD000B0AF8 /* Butttons */,
 				BFDC7E69260145C700D93D93 /* Labels */,
 				BF3F18CF2602A9C3000B0AF8 /* TextView */,
@@ -198,6 +200,23 @@
 				BF59C367261E34B900E0C97D /* MTGCardDataManager.swift */,
 			);
 			path = "Data Persistence";
+			sourceTree = "<group>";
+		};
+		BF59C36D26332E0C00E0C97D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BF3656A72612B90A00A5AF1B /* CardCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		BF59C37826332FE700E0C97D /* CardDetailViews */ = {
+			isa = PBXGroup;
+			children = (
+				BFDC7E632600229C00D93D93 /* CardDetailView.swift */,
+				BF59C37526332FD600E0C97D /* AdditionalCardDetailView.swift */,
+			);
+			path = CardDetailViews;
 			sourceTree = "<group>";
 		};
 		BFDC7E69260145C700D93D93 /* Labels */ = {
@@ -301,6 +320,7 @@
 				BF59C368261E34B900E0C97D /* MTGCardDataManager.swift in Sources */,
 				BF1E2E3825F939B200888984 /* CardComponent.swift in Sources */,
 				BFDC7E642600229C00D93D93 /* CardDetailView.swift in Sources */,
+				BF59C37626332FD600E0C97D /* AdditionalCardDetailView.swift in Sources */,
 				BF3F18D72602B19F000B0AF8 /* MTGButton.swift in Sources */,
 				BF3D31E526028EB90055ACEF /* CardDetailViewController.swift in Sources */,
 				BF3F18D12602A9FC000B0AF8 /* CardDetailImageView.swift in Sources */,

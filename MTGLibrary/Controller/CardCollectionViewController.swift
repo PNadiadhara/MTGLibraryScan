@@ -65,7 +65,7 @@ class CardCollectionViewController: UIViewController {
         collectionView.register(CardCollectionViewCell.self,
                                 forCellWithReuseIdentifier: CardCollectionViewCell.identifier)
         view.addSubview(collectionView)
-        collectionView.frame = view.bounds
+        collectionView.frame = view.bounds.insetBy(dx: 5, dy: 5)
     }
     
     @objc func addCardButtonTapped() {
@@ -201,8 +201,7 @@ extension CardCollectionViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCollectionViewCell.identifier, for: indexPath) as! CardCollectionViewCell
         cell.configure(label: "\(savedMTGCards[indexPath.row].name)")
         cell.cardImage.downloadImage(fromURL: savedMTGCards[indexPath.row].image_uris.art_crop )
-        
-        
+
         return cell
     }
     
