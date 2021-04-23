@@ -76,12 +76,6 @@ class CardDetailView: UIView {
         ])
         
     }
-    
-    
-   
-    
-    
-    
-    
+
 
 }

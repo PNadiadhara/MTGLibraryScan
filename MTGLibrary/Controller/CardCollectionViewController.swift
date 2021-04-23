@@ -9,9 +9,10 @@ import UIKit
 import Vision
 import Photos
 
-class CardCollectionViewController: UIViewController {
+class CardCollectionViewController: UIViewController  {
     
     private var collectionView: UICollectionView?
+    private let searchController = UISearchController()
     var image: UIImage?
     var setCode: String = ""
     var setNumber: String = ""
@@ -20,6 +21,12 @@ class CardCollectionViewController: UIViewController {
             self.collectionView?.reloadData()
         }
     }
+    var filterdMTGCards = [MTGCard]() {
+        didSet {
+            self.collectionView?.reloadData()
+        }
+    }
+    
     
     lazy var textDetectionRequest: VNRecognizeTextRequest = {
         let request = VNRecognizeTextRequest(completionHandler: self.handleDectectedText)
@@ -43,6 +50,8 @@ class CardCollectionViewController: UIViewController {
     func configureNavBar() {
         title = "Collection"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCardButtonTapped))
+        navigationItem.searchController = searchController
+        searchController.searchResultsUpdater = self
     }
     
     func configureCollectionView() {
@@ -194,13 +203,24 @@ extension CardCollectionViewController: UICollectionViewDelegate {
 
 extension CardCollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return savedMTGCards.count
+        if !filterdMTGCards.isEmpty {
+            return filterdMTGCards.count
+        } else {
+            return savedMTGCards.count
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCollectionViewCell.identifier, for: indexPath) as! CardCollectionViewCell
-        cell.configure(label: "\(savedMTGCards[indexPath.row].name)")
-        cell.cardImage.downloadImage(fromURL: savedMTGCards[indexPath.row].image_uris.art_crop )
+        if !filterdMTGCards.isEmpty {
+            cell.configure(label: "\(filterdMTGCards[indexPath.row].name)")
+            cell.cardImage.downloadImage(fromURL: filterdMTGCards[indexPath.row].image_uris.art_crop )
+        } else {
+            cell.configure(label: "\(savedMTGCards[indexPath.row].name)")
+            cell.cardImage.downloadImage(fromURL: savedMTGCards[indexPath.row].image_uris.art_crop )
+        }
+        
 
         return cell
     }
@@ -218,6 +238,19 @@ extension CardCollectionViewController: UIImagePickerControllerDelegate, UINavig
         dismiss(animated: true, completion: nil)
         image = info[.originalImage] as? UIImage
         processImage()
+    }
+}
+
+extension CardCollectionViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else {
+            return
+        }
+        filterdMTGCards = savedMTGCards.filter {
+            $0.name.range(of: "\(text)", options: .caseInsensitive) != nil
+        }
+        
+        
     }
     
     

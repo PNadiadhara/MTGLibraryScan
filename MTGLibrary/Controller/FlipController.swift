@@ -9,14 +9,14 @@ import UIKit
 
 class FlipController: UIViewController {
     
-    var firstView: UIView!
-    var secondView: UIView!
+    var firstView: CardDetailView!
+    var secondView: AdditionalCardDetailView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //firstView = UIView(frame: )
-        secondView = UIView(frame: UIScreen.main.bounds)
+        firstView = UIView(frame: UIScreen.main.bounds) as? CardDetailView
+        secondView = UIView(frame: UIScreen.main.bounds) as? AdditionalCardDetailView
         
         firstView.backgroundColor = UIColor.red
         secondView.backgroundColor = UIColor.blue
