@@ -9,41 +9,16 @@ import UIKit
 
 class FlipController: UIViewController {
     
-    var firstView: CardDetailView!
-    var secondView: AdditionalCardDetailView!
+    let mainView = CardCollectionView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        firstView = UIView(frame: UIScreen.main.bounds) as? CardDetailView
-        secondView = UIView(frame: UIScreen.main.bounds) as? AdditionalCardDetailView
-        
-        firstView.backgroundColor = UIColor.red
-        secondView.backgroundColor = UIColor.blue
-        
-        secondView.isHidden = true
-        
-        view.addSubview(firstView)
-        view.addSubview(secondView)
-        
-        perform(#selector(flip), with: nil, afterDelay: 2)
+        view.addSubview(mainView)
+        self.view.backgroundColor = .green
+        mainView.collectionView.backgroundColor = .blue
         
         
     }
-    
-    
-    @objc func flip() {
-        let transitionOptions: UIView.AnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
-        
-        UIView.transition(with: firstView, duration: 1.0, options: transitionOptions, animations: {
-            self.firstView.isHidden = true
-        })
-        
-        UIView.transition(with: secondView, duration: 1.0, options: transitionOptions, animations: {
-            self.secondView.isHidden = false
-        })
-    }
-    
     
     
     

@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let myWindowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: myWindowScene.coordinateSpace.bounds) // makes it fill up full width
         window?.windowScene = myWindowScene
-        window?.rootViewController = UINavigationController(rootViewController: CardCollectionViewController())
+        window?.rootViewController = UINavigationController(rootViewController: FlipController())
         window?.makeKeyAndVisible()
         configureNavigationBar()
         
