@@ -9,10 +9,11 @@ import UIKit
 import Vision
 import Photos
 
-class CardCollectionViewController: UIViewController  {
+class CardCollectionViewController: UIViewController, UISearchBarDelegate  {
     
     private var collectionView: UICollectionView?
-    private let searchController = UISearchController()
+    //private var searchController = UISearchController(searchResultsController: nil)
+    private let searchbar = UISearchBar()
     var image: UIImage?
     var setCode: String = ""
     var setNumber: String = ""
@@ -38,6 +39,7 @@ class CardCollectionViewController: UIViewController  {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchbar.delegate = self
         configureNavBar()
         configureCollectionView()
         
@@ -45,13 +47,27 @@ class CardCollectionViewController: UIViewController  {
     
     override func viewWillAppear(_ animated: Bool) {
         savedMTGCards = MTGCardDataManager.getMTGCards()
+        configureNavBar()
     }
+    
+    
     
     func configureNavBar() {
         title = "Collection"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCardButtonTapped))
-        navigationItem.searchController = searchController
-        searchController.searchResultsUpdater = self
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchCollection))
+//        navigationItem.searchController = searchController
+//
+//        searchController.searchResultsUpdater = self
+//        searchController = UISearchController(searchResultsController: nil)
+//        searchController.delegate = self
+//        searchController.searchBar.delegate = self
+//        searchController.dismiss(animated: false, completion: nil)
+//        searchController.searchBar.placeholder = "Search Collection"
+//        definesPresentationContext = true
+//        searchController.isActive = true
+        
+        
     }
     
     func configureCollectionView() {
@@ -73,7 +89,10 @@ class CardCollectionViewController: UIViewController  {
         collectionView.delegate = self
         collectionView.register(CardCollectionViewCell.self,
                                 forCellWithReuseIdentifier: CardCollectionViewCell.identifier)
+        view.addSubview(searchbar)
         view.addSubview(collectionView)
+        
+        searchbar.frame = view.bounds
         collectionView.frame = view.bounds.insetBy(dx: 5, dy: 5)
     }
     
@@ -87,6 +106,11 @@ class CardCollectionViewController: UIViewController  {
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func searchCollection() {
+//        searchController.becomeFirstResponder()
+//        searchController.isActive = true
     }
     
     func presentPhotoPicker(type: UIImagePickerController.SourceType) {
@@ -195,8 +219,14 @@ class CardCollectionViewController: UIViewController  {
 
 extension CardCollectionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        pushSavedCardDetailViewController(mtgCard: savedMTGCards[indexPath.row])
-        collectionView.deleteItems(at: [indexPath])
+        if !filterdMTGCards.isEmpty {
+            pushSavedCardDetailViewController(mtgCard: filterdMTGCards[indexPath.row])
+            print( "\(filterdMTGCards[indexPath.row].name) tapped")
+        } else {
+            pushSavedCardDetailViewController(mtgCard: savedMTGCards[indexPath.row])
+        }
+        
+        
     }
     
 }
@@ -220,8 +250,6 @@ extension CardCollectionViewController: UICollectionViewDataSource {
             cell.configure(label: "\(savedMTGCards[indexPath.row].name)")
             cell.cardImage.downloadImage(fromURL: savedMTGCards[indexPath.row].image_uris.art_crop )
         }
-        
-
         return cell
     }
     
@@ -241,7 +269,7 @@ extension CardCollectionViewController: UIImagePickerControllerDelegate, UINavig
     }
 }
 
-extension CardCollectionViewController: UISearchResultsUpdating {
+extension CardCollectionViewController: UISearchResultsUpdating, UISearchControllerDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else {
             return
@@ -250,8 +278,7 @@ extension CardCollectionViewController: UISearchResultsUpdating {
             $0.name.range(of: "\(text)", options: .caseInsensitive) != nil
         }
         
-        
     }
-    
-    
 }
+
+

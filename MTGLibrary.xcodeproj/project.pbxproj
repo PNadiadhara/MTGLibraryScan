@@ -36,6 +36,7 @@
 		BFDC7E762601478B00D93D93 /* MTGError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC7E752601478B00D93D93 /* MTGError.swift */; };
 		BFDC7E792601484400D93D93 /* MTGCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC7E782601484400D93D93 /* MTGCard.swift */; };
 		BFF22B002633339800E49AF9 /* UITableViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF22AFF2633339800E49AF9 /* UITableViewExt.swift */; };
+		BFF22B052637B21800E49AF9 /* CardCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF22B042637B21800E49AF9 /* CardCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		BFDC7E752601478B00D93D93 /* MTGError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGError.swift; sourceTree = "<group>"; };
 		BFDC7E782601484400D93D93 /* MTGCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGCard.swift; sourceTree = "<group>"; };
 		BFF22AFF2633339800E49AF9 /* UITableViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExt.swift; sourceTree = "<group>"; };
+		BFF22B042637B21800E49AF9 /* CardCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				BF1E2E4425F95C9B00888984 /* OCRScanView.swift */,
+				BFF22B042637B21800E49AF9 /* CardCollectionView.swift */,
 				BF59C37826332FE700E0C97D /* CardDetailViews */,
 				BF59C36D26332E0C00E0C97D /* Cells */,
 				BF3F18D92602B1AD000B0AF8 /* Butttons */,
@@ -309,6 +312,7 @@
 				BF3F18E12602BFA8000B0AF8 /* AddMultipleSubviews.swift in Sources */,
 				BF59C36B2630E2EC00E0C97D /* FlipController.swift in Sources */,
 				BF3F18DC2602B20A000B0AF8 /* MTGTextField.swift in Sources */,
+				BFF22B052637B21800E49AF9 /* CardCollectionView.swift in Sources */,
 				BF3D31E8260298D80055ACEF /* OracleTextView.swift in Sources */,
 				BFDC7E6F2601461400D93D93 /* BodyLabel.swift in Sources */,
 				BFDC7E762601478B00D93D93 /* MTGError.swift in Sources */,
