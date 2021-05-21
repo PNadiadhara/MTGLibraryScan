@@ -39,7 +39,9 @@ class CardCollectionView: UIView {
         search.resignFirstResponder()
         setUpConstraints()
         
+        searchBarTextDidBeginEditing(search)
         
+
         
     }
     
@@ -67,5 +69,18 @@ class CardCollectionView: UIView {
         ])
         
         
+    }
+}
+
+extension CardCollectionView : UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+            self.search.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+            search.showsCancelButton = false
+            search.text = ""
+            search.resignFirstResponder()
     }
 }

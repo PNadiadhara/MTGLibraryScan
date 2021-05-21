@@ -28,6 +28,7 @@
 		BF59C368261E34B900E0C97D /* MTGCardDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF59C367261E34B900E0C97D /* MTGCardDataManager.swift */; };
 		BF59C36B2630E2EC00E0C97D /* FlipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF59C36A2630E2EC00E0C97D /* FlipController.swift */; };
 		BF59C37626332FD600E0C97D /* AdditionalCardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF59C37526332FD600E0C97D /* AdditionalCardDetailView.swift */; };
+		BF80BCC42656F27600BF2B45 /* CollectionViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF80BCC32656F27600BF2B45 /* CollectionViewHelper.swift */; };
 		BFDC7E642600229C00D93D93 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC7E632600229C00D93D93 /* CardDetailView.swift */; };
 		BFDC7E67260145A000D93D93 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC7E66260145A000D93D93 /* TitleLabel.swift */; };
 		BFDC7E6B260145EF00D93D93 /* SecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDC7E6A260145EF00D93D93 /* SecondaryTitleLabel.swift */; };
@@ -63,6 +64,7 @@
 		BF59C367261E34B900E0C97D /* MTGCardDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MTGCardDataManager.swift; sourceTree = "<group>"; };
 		BF59C36A2630E2EC00E0C97D /* FlipController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipController.swift; sourceTree = "<group>"; };
 		BF59C37526332FD600E0C97D /* AdditionalCardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalCardDetailView.swift; sourceTree = "<group>"; };
+		BF80BCC32656F27600BF2B45 /* CollectionViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHelper.swift; sourceTree = "<group>"; };
 		BFDC7E632600229C00D93D93 /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
 		BFDC7E66260145A000D93D93 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		BFDC7E6A260145EF00D93D93 /* SecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryTitleLabel.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				BF1E2E3F25F93EC000888984 /* AlertController.swift */,
 				BF3F18E02602BFA8000B0AF8 /* AddMultipleSubviews.swift */,
 				BFF22AFF2633339800E49AF9 /* UITableViewExt.swift */,
+				BF80BCC32656F27600BF2B45 /* CollectionViewHelper.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF3656A52612B07600A5AF1B /* CardCollectionViewController.swift in Sources */,
+				BF80BCC42656F27600BF2B45 /* CollectionViewHelper.swift in Sources */,
 				BF1E2E4525F95C9B00888984 /* OCRScanView.swift in Sources */,
 				BF3656A22603FA7E00A5AF1B /* DataModel.xcdatamodeld in Sources */,
 				BF1E2E2425F9254100888984 /* ViewController.swift in Sources */,
@@ -400,7 +404,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -455,7 +459,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
