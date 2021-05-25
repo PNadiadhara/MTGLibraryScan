@@ -32,10 +32,7 @@ class FlipController: UIViewController {
             self.collectionView?.reloadData()
         }
     }
-    var page = 1
-    var hasMoreFollowers = true
-    var isSearching = false
-    var isLoadingMoreFollowers = false
+    
     
     private var collectionView: UICollectionView?
     private var searchController = UISearchController(searchResultsController: nil)
