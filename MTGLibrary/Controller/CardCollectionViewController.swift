@@ -42,8 +42,6 @@ class CardCollectionViewController: UIViewController, UISearchBarDelegate  {
         configureNavBar()
         configureSearchController()
         configureCollectionView()
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,7 +54,7 @@ class CardCollectionViewController: UIViewController, UISearchBarDelegate  {
     func configureNavBar() {
         title = "Collection"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCardButtonTapped))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchCollection))
+        
         
 
     }
@@ -106,11 +104,7 @@ class CardCollectionViewController: UIViewController, UISearchBarDelegate  {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
-    
-    @objc func searchCollection() {
-//        searchController.becomeFirstResponder()
-//        searchController.isActive = true
-    }
+    g
     
     func presentPhotoPicker(type: UIImagePickerController.SourceType) {
         let controller = UIImagePickerController()
