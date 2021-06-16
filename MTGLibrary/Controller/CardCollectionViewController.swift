@@ -12,7 +12,6 @@ import Photos
 class CardCollectionViewController: UIViewController, UISearchBarDelegate  {
     
     private var collectionView: UICollectionView?
-    private var searchController = UISearchController(searchResultsController: nil)
     private let searchbar = UISearchBar()
     var image: UIImage?
     var setCode: String = ""
@@ -41,7 +40,9 @@ class CardCollectionViewController: UIViewController, UISearchBarDelegate  {
         super.viewDidLoad()
         searchbar.delegate = self
         configureNavBar()
+        configureSearchController()
         configureCollectionView()
+        
         
     }
     
@@ -56,18 +57,16 @@ class CardCollectionViewController: UIViewController, UISearchBarDelegate  {
         title = "Collection"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCardButtonTapped))
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchCollection))
-        navigationItem.searchController = searchController
+        
 
+    }
+    
+    func configureSearchController() {
+        let searchController = UISearchController()
         searchController.searchResultsUpdater = self
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.delegate = self
-        searchController.searchBar.delegate = self
-        //searchController.dismiss(animated: false, completion: nil)
-        searchController.searchBar.placeholder = "Search Collection"
-        definesPresentationContext = true
-        searchController.isActive = true
-        
-        
+        searchController.searchBar.placeholder = "Search Library"
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.searchController = searchController
     }
     
     func configureCollectionView() {
