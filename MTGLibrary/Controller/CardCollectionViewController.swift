@@ -104,7 +104,7 @@ class CardCollectionViewController: UIViewController, UISearchBarDelegate  {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
-    g
+    
     
     func presentPhotoPicker(type: UIImagePickerController.SourceType) {
         let controller = UIImagePickerController()
@@ -155,8 +155,13 @@ class CardCollectionViewController: UIViewController, UISearchBarDelegate  {
         }
         
         DispatchQueue.main.async { [self] in
-            if setNumberComponent.text.count >= 3 {
+            if setNumberComponent.text.count > 3 {
                 self.setNumber = "\(setNumberComponent.text.prefix(3))"
+                print(setNumber)
+            } else {
+                self.setNumber = "\(setNumberComponent.text)"
+                print("Setnumber under 4 digits")
+                print(setNumber)
             }
             if setComponent.text.count >= 3 {
                 self.setCode = "\(setComponent.text.prefix(3))"

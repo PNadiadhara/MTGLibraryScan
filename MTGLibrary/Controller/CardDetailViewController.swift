@@ -88,7 +88,8 @@ class CardDetailViewController: UIViewController {
                 
             case .failure(let error):
                 DispatchQueue.main.async {
-                    self.showAlert(title: "Error", message: "Please Try Again", style: .alert, handler: {_ in
+                    print(error)
+                    self.showAlert(title: "Error", message: error.rawValue + " SetNumber: \(setNumber), SetCode:\(setCode)", style: .alert, handler: {_ in
                         self.navigationController?.popToRootViewController(animated: true)
                     })
                     print("Result failed: " + error.localizedDescription)
