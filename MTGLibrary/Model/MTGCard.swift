@@ -49,8 +49,8 @@ struct ImageURIs: Codable {
 }
 
 struct Price: Codable {
-    let usd: String
-    let usd_foil: String
+    let usd: String?
+    let usd_foil: String?
 }
 
 

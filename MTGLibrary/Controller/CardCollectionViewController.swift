@@ -160,8 +160,7 @@ class CardCollectionViewController: UIViewController, UISearchBarDelegate  {
                 print(setNumber)
             } else {
                 self.setNumber = "\(setNumberComponent.text)"
-                print("Setnumber under 4 digits")
-                print(setNumber)
+               
             }
             if setComponent.text.count >= 3 {
                 self.setCode = "\(setComponent.text.prefix(3))"
