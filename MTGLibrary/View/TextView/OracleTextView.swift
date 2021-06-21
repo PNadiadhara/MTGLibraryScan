@@ -26,7 +26,7 @@ class OracleTextView: UITextView {
         autocorrectionType = .no
         isEditable = false
         backgroundColor = .secondarySystemBackground
-        textColor = .secondaryLabel
+        textColor = .white
         font = UIFont.preferredFont(forTextStyle: .body)
         layer.cornerRadius = 20
         textContainerInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)

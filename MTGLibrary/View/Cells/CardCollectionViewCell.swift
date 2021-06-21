@@ -26,7 +26,7 @@ class CardCollectionViewCell: UICollectionViewCell {
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Card Name"
-        label.backgroundColor = .green
+        label.backgroundColor = .black
         label.textAlignment = .center
         label.adjustsFontSizeToFitWidth = true
         return label

@@ -21,7 +21,7 @@ class CardDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemOrange
+        view.backgroundColor = .black
         view.addSubview(cardDetailView)
         
         cardDetailView.oracleTextView.clipsToBounds = true

@@ -26,7 +26,8 @@ class CardDetailView: UIView {
     }
     
     private func setConstraints() {
-        addSubviews(nameLabel,
+        //nameLabel,
+        addSubviews(
                     cardImage,
                     oracleTextView,
                     numberOfCopies,
@@ -44,12 +45,12 @@ class CardDetailView: UIView {
         
         
         NSLayoutConstraint.activate([
-            nameLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10),
-            nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            nameLabel.heightAnchor.constraint(equalToConstant: 30),
+//            nameLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10),
+//            nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+//            nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+//            nameLabel.heightAnchor.constraint(equalToConstant: 30),
             
-            cardImage.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 4),
+            cardImage.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10),
             cardImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 11),
             cardImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -11),
             cardImage.heightAnchor.constraint(equalToConstant: 275),
