@@ -23,8 +23,11 @@ class CardDetailViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .black
         view.addSubview(cardDetailView)
+        cardDetailView.tableView.delegate = self
+        cardDetailView.tableView.dataSource = self
         
-        cardDetailView.oracleTextView.clipsToBounds = true
+        
+        //cardDetailView.oracleTextView.clipsToBounds = true
         
         getCardInfo(setCode: setNameCode, setNumber: setNumberCode)
         
@@ -74,10 +77,10 @@ class CardDetailViewController: UIViewController {
                 
                 self.magicCard = mtgCard
                 DispatchQueue.main.async {
-                    self.cardDetailView.nameLabel.text = self.magicCard.name
+                    //self.cardDetailView.nameLabel.text = self.magicCard.name
                     self.cardDetailView.cardImage.downloadImage(fromURL: self.magicCard.image_uris.art_crop)
                     
-                    self.cardDetailView.oracleTextView.text = self.magicCard.oracle_text
+                    //®self.cardDetailView.oracleTextView.text = self.magicCard.oracle_text
                     self.title = self.magicCard.name
                     if self.collectedCards.contains(self.magicCard) {
                         self.cardDetailView.saveButton.set(backgroundColor: .systemTeal, title: "Update")
@@ -128,6 +131,20 @@ class CardDetailViewController: UIViewController {
             
             
         }
+    }
+    
+    
+}
+
+extension CardDetailViewController : UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: NumberOfCopiesTableViewCell.identifier, for: indexPath)
+        cell.textLabel?.text = "Look at the circus of Value!"
+        return cell
     }
     
     

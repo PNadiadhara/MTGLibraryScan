@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF05570726C4AE8300CB2E6F /* NumberOfCopiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05570626C4AE8300CB2E6F /* NumberOfCopiesTableViewCell.swift */; };
 		BF1E2E2025F9254100888984 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1E2E1F25F9254100888984 /* AppDelegate.swift */; };
 		BF1E2E2225F9254100888984 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1E2E2125F9254100888984 /* SceneDelegate.swift */; };
 		BF1E2E2425F9254100888984 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1E2E2325F9254100888984 /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF05570626C4AE8300CB2E6F /* NumberOfCopiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfCopiesTableViewCell.swift; sourceTree = "<group>"; };
 		BF1E2E1C25F9254100888984 /* MTGLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTGLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF1E2E1F25F9254100888984 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF1E2E2125F9254100888984 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				BF3656A72612B90A00A5AF1B /* CardCollectionViewCell.swift */,
+				BF05570626C4AE8300CB2E6F /* NumberOfCopiesTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				BF59C36B2630E2EC00E0C97D /* FlipController.swift in Sources */,
 				BF3F18DC2602B20A000B0AF8 /* MTGTextField.swift in Sources */,
 				BFF22B052637B21800E49AF9 /* CardCollectionView.swift in Sources */,
+				BF05570726C4AE8300CB2E6F /* NumberOfCopiesTableViewCell.swift in Sources */,
 				BF3D31E8260298D80055ACEF /* OracleTextView.swift in Sources */,
 				BFDC7E6F2601461400D93D93 /* BodyLabel.swift in Sources */,
 				BFDC7E762601478B00D93D93 /* MTGError.swift in Sources */,
