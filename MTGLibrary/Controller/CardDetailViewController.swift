@@ -25,9 +25,10 @@ class CardDetailViewController: UIViewController {
         view.addSubview(cardDetailView)
         cardDetailView.tableView.delegate = self
         cardDetailView.tableView.dataSource = self
+        cardDetailView.tableView.register(NumberOfCopiesTableViewCell.self, forCellReuseIdentifier: "NumberOfCopiesTableViewCell")
         
         
-        //cardDetailView.oracleTextView.clipsToBounds = true
+        
         
         getCardInfo(setCode: setNameCode, setNumber: setNumberCode)
         
@@ -77,10 +78,8 @@ class CardDetailViewController: UIViewController {
                 
                 self.magicCard = mtgCard
                 DispatchQueue.main.async {
-                    //self.cardDetailView.nameLabel.text = self.magicCard.name
                     self.cardDetailView.cardImage.downloadImage(fromURL: self.magicCard.image_uris.art_crop)
                     
-                    //®self.cardDetailView.oracleTextView.text = self.magicCard.oracle_text
                     self.title = self.magicCard.name
                     if self.collectedCards.contains(self.magicCard) {
                         self.cardDetailView.saveButton.set(backgroundColor: .systemTeal, title: "Update")
@@ -142,8 +141,11 @@ extension CardDetailViewController : UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: NumberOfCopiesTableViewCell.identifier, for: indexPath)
-        cell.textLabel?.text = "Look at the circus of Value!"
+        let cell = tableView.dequeueReusableCell(withIdentifier: NumberOfCopiesTableViewCell.identifier, for: indexPath) as! NumberOfCopiesTableViewCell
+        
+        cell.numberOfCopies.text = "Copies"
+        
+        
         return cell
     }
     
