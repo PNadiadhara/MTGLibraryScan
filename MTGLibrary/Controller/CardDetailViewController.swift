@@ -19,13 +19,15 @@ class CardDetailViewController: UIViewController {
     var collectedCards = MTGCardDataManager.getMTGCards()
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
         view.addSubview(cardDetailView)
+        cardDetailView.tableView.register(NumberOfCopiesTableViewCell.self, forCellReuseIdentifier: NumberOfCopiesTableViewCell.identifier)
+
         cardDetailView.tableView.delegate = self
         cardDetailView.tableView.dataSource = self
-        cardDetailView.tableView.register(NumberOfCopiesTableViewCell.self, forCellReuseIdentifier: "NumberOfCopiesTableViewCell")
         
         
         
@@ -142,8 +144,9 @@ extension CardDetailViewController : UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: NumberOfCopiesTableViewCell.identifier, for: indexPath) as! NumberOfCopiesTableViewCell
-        
+        cell.configure(with: "Work")
         cell.numberOfCopies.text = "Copies"
+        cell.numberOfCopies.textColor = .white
         
         
         return cell

@@ -21,7 +21,7 @@ class NumberOfCopiesTableViewCell: UITableViewCell {
     //This label will display string either #ofNormal or #ofFoils
     var numberOfCopies : UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textAlignment = .left
         return label
@@ -46,7 +46,7 @@ class NumberOfCopiesTableViewCell: UITableViewCell {
      label.font = UIFont.boldSystemFont(ofSize: 16)
      label.textAlignment = .left
      //label.text = "1"
-     label.textColor = .black
+     label.textColor = .white
      return label
      
      }()
@@ -54,18 +54,14 @@ class NumberOfCopiesTableViewCell: UITableViewCell {
     
     public func configure(with quantity: String) {
         // use this for both normal and foil copies
-        
+        setConstraints()
         numberOfCopies.text = "quantity"
         
     }
     
     
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
+
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
