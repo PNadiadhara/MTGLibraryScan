@@ -55,7 +55,7 @@ class NumberOfCopiesTableViewCell: UITableViewCell {
     public func configure(with quantity: String) {
         // use this for both normal and foil copies
         setConstraints()
-        numberOfCopies.text = "quantity"
+        numberOfCopies.text = quantity
         
     }
     
@@ -77,7 +77,7 @@ class NumberOfCopiesTableViewCell: UITableViewCell {
             cardQuantity
         )
         
-        numberOfCopies.anchor(top: topAnchor, left: leftAnchor, bottom: nil, right: nil, paddingTop: 20, paddingLeft: 10, paddingBottom: 0, paddingRight: 0, width: frame.size.width / 2, height: 0, enableInsets: false)
+        numberOfCopies.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: nil, paddingTop: 0, paddingLeft: 10, paddingBottom: 0, paddingRight: 0, width: frame.size.width / 2, height: 0, enableInsets: false)
         
         let stackView = UIStackView(arrangedSubviews: [decreaseButton,cardQuantity,increaseButton])
         stackView.distribution = .equalSpacing

@@ -139,13 +139,13 @@ class CardDetailViewController: UIViewController {
 
 extension CardDetailViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: NumberOfCopiesTableViewCell.identifier, for: indexPath) as! NumberOfCopiesTableViewCell
         cell.configure(with: "Work")
-        cell.numberOfCopies.text = "Copies"
+        
         cell.numberOfCopies.textColor = .white
         
         
