@@ -20,10 +20,12 @@ class CardDetailViewController: UIViewController {
     
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
         view.addSubview(cardDetailView)
+        
         cardDetailView.tableView.register(NumberOfCopiesTableViewCell.self, forCellReuseIdentifier: NumberOfCopiesTableViewCell.identifier)
 
         cardDetailView.tableView.delegate = self
@@ -144,7 +146,8 @@ extension CardDetailViewController : UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: NumberOfCopiesTableViewCell.identifier, for: indexPath) as! NumberOfCopiesTableViewCell
-        cell.configure(with: "Work")
+        
+        cell.configure(with: "Normal", quantity: String(magicCard.copies ?? 12))
         
         cell.numberOfCopies.textColor = .white
         

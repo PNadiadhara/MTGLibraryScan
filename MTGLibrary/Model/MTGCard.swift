@@ -37,8 +37,8 @@ struct MTGCard: Codable, Equatable {
     let artist: String
     let prices : Price
     // These are created by the user and not pull from the API
-    let copies : Int?
-    let foiCopies: Int?
+    var copies : Int? = 0
+    var foilCopies: Int?
       
 }
 

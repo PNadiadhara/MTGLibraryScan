@@ -52,10 +52,11 @@ class NumberOfCopiesTableViewCell: UITableViewCell {
      }()
     
     
-    public func configure(with quantity: String) {
+    public func configure(with cardType: String, quantity: String) {
         // use this for both normal and foil copies
         setConstraints()
-        numberOfCopies.text = quantity
+        numberOfCopies.text = cardType
+        cardQuantity.text = quantity
         
     }
     
