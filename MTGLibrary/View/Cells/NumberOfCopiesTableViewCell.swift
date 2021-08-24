@@ -7,9 +7,17 @@
 
 import UIKit
 
+protocol NumberOfCopiesCellDelegate {
+    func increaseNumber(cell: NumberOfCopiesTableViewCell,number : Int)
+    func decreaseNumber(cell: NumberOfCopiesTableViewCell,number : Int)
+}
+
 class NumberOfCopiesTableViewCell: UITableViewCell {
 
     static let identifier = "NumberOfCopiesTableViewCell"
+    
+    var delegate : NumberOfCopiesCellDelegate?
+    var minValue = 0
     
     var mtgCard: MTGCard? {
         didSet {
@@ -45,7 +53,7 @@ class NumberOfCopiesTableViewCell: UITableViewCell {
      let label = UILabel()
      label.font = UIFont.boldSystemFont(ofSize: 16)
      label.textAlignment = .left
-     //label.text = "1"
+     label.text = "1"
      label.textColor = .white
      return label
      
@@ -60,9 +68,30 @@ class NumberOfCopiesTableViewCell: UITableViewCell {
         
     }
     
+    //MARK: - Adjust Number of copies
     
+    func changeQuantity(by amount: Int) {
+        var quantity = mtgCard?.copies
+        quantity! += amount
+        if quantity! < minValue {
+            quantity = 0
+            cardQuantity.text = "0"
+        } else {
+            cardQuantity.text = "\(quantity ?? 0)"
+        }
+        delegate?.decreaseNumber(cell: self, number: quantity!)
+        
+    }
     
-
+    @objc func decreaseFunc() {
+        changeQuantity(by: -1)
+        
+    }
+    
+    @objc func increaseFunc() {
+        changeQuantity(by: 1)
+    }
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
