@@ -17,7 +17,7 @@ class CardDetailViewController: UIViewController {
     var imgURL : String = ""
     public var magicCard : MTGCard!
     var collectedCards = MTGCardDataManager.getMTGCards()
-    
+    var oracleText = String()
     
     
     
@@ -27,6 +27,7 @@ class CardDetailViewController: UIViewController {
         view.addSubview(cardDetailView)
         
         cardDetailView.tableView.register(NumberOfCopiesTableViewCell.self, forCellReuseIdentifier: NumberOfCopiesTableViewCell.identifier)
+        cardDetailView.tableView.register(CardTextTableViewCell.self, forCellReuseIdentifier: CardTextTableViewCell.identifier)
 
         cardDetailView.tableView.delegate = self
         cardDetailView.tableView.dataSource = self
@@ -85,6 +86,12 @@ class CardDetailViewController: UIViewController {
                     self.cardDetailView.cardImage.downloadImage(fromURL: self.magicCard.image_uris.art_crop)
                     
                     self.title = self.magicCard.name
+                    self.oracleText = self.magicCard.oracle_text
+                    print(self.oracleText)
+                    self.cardDetailView.tableView.reloadData()
+                    
+                    
+                    //adjust this to fix update text bug
                     if self.collectedCards.contains(self.magicCard) {
                         self.cardDetailView.saveButton.set(backgroundColor: .systemTeal, title: "Update")
                         
@@ -139,20 +146,37 @@ class CardDetailViewController: UIViewController {
     
 }
 
+//MARK: - TableView
 extension CardDetailViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: NumberOfCopiesTableViewCell.identifier, for: indexPath) as! NumberOfCopiesTableViewCell
+//        if indexPath.row == 0 {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: CardTextTableViewCell.identifier, for: indexPath) as! CardTextTableViewCell
+//
+//            cell.configure(with: magicCard.oracle_text)
+//            return cell
+//        }
+        if indexPath.row == 1 || indexPath.row == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: NumberOfCopiesTableViewCell.identifier, for: indexPath) as! NumberOfCopiesTableViewCell
+            // row height to have cardText fit neatly
+            tableView.rowHeight = UITableView.automaticDimension
+            tableView.estimatedRowHeight = 600
+            cell.numberOfCopies.textColor = .white
+            cell.configure(with: "Normal", quantity: "Num")
+            return cell
+        }
         
-        cell.configure(with: "Normal", quantity: String(magicCard.copies ?? 12))
+        let cell = tableView.dequeueReusableCell(withIdentifier: CardTextTableViewCell.identifier, for: indexPath) as! CardTextTableViewCell
         
-        cell.numberOfCopies.textColor = .white
+            cell.configure(with: self.oracleText)
         
         
         return cell
+        
+       
     }
     
     

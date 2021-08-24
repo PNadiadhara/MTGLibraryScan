@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BF05570726C4AE8300CB2E6F /* NumberOfCopiesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05570626C4AE8300CB2E6F /* NumberOfCopiesTableViewCell.swift */; };
 		BF05570926CADC7700CB2E6F /* Anchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05570826CADC7700CB2E6F /* Anchors.swift */; };
+		BF05570B26D5862D00CB2E6F /* CardTextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05570A26D5862D00CB2E6F /* CardTextTableViewCell.swift */; };
 		BF1E2E2025F9254100888984 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1E2E1F25F9254100888984 /* AppDelegate.swift */; };
 		BF1E2E2225F9254100888984 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1E2E2125F9254100888984 /* SceneDelegate.swift */; };
 		BF1E2E2425F9254100888984 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1E2E2325F9254100888984 /* ViewController.swift */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		BF05570626C4AE8300CB2E6F /* NumberOfCopiesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfCopiesTableViewCell.swift; sourceTree = "<group>"; };
 		BF05570826CADC7700CB2E6F /* Anchors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anchors.swift; sourceTree = "<group>"; };
+		BF05570A26D5862D00CB2E6F /* CardTextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTextTableViewCell.swift; sourceTree = "<group>"; };
 		BF1E2E1C25F9254100888984 /* MTGLibrary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MTGLibrary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF1E2E1F25F9254100888984 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF1E2E2125F9254100888984 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 			children = (
 				BF3656A72612B90A00A5AF1B /* CardCollectionViewCell.swift */,
 				BF05570626C4AE8300CB2E6F /* NumberOfCopiesTableViewCell.swift */,
+				BF05570A26D5862D00CB2E6F /* CardTextTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				BF3656A82612B90A00A5AF1B /* CardCollectionViewCell.swift in Sources */,
 				BFDC7E792601484400D93D93 /* MTGCard.swift in Sources */,
 				BFDC7E67260145A000D93D93 /* TitleLabel.swift in Sources */,
+				BF05570B26D5862D00CB2E6F /* CardTextTableViewCell.swift in Sources */,
 				BF59C368261E34B900E0C97D /* MTGCardDataManager.swift in Sources */,
 				BF1E2E3825F939B200888984 /* CardComponent.swift in Sources */,
 				BFDC7E642600229C00D93D93 /* CardDetailView.swift in Sources */,
