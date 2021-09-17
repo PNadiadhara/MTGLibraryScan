@@ -28,6 +28,8 @@ class CardDetailViewController: UIViewController {
         
         cardDetailView.cardDetailTableView.rowHeight = UITableView.automaticDimension
         cardDetailView.cardDetailTableView.estimatedRowHeight = 600
+        cardDetailView.cardDetailTableView.allowsSelection = false
+        
         
         
         cardDetailView.cardDetailTableView.register(NumberOfCopiesTableViewCell.self, forCellReuseIdentifier: NumberOfCopiesTableViewCell.identifier)
@@ -160,12 +162,7 @@ extension CardDetailViewController : UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //        if indexPath.row == 0 {
-        //            let cell = tableView.dequeueReusableCell(withIdentifier: CardTextTableViewCell.identifier, for: indexPath) as! CardTextTableViewCell
-        //
-        //            cell.configure(with: magicCard.oracle_text)
-        //            return cell
-        //        }
+      
         if indexPath.row == 1 || indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: NumberOfCopiesTableViewCell.identifier, for: indexPath) as! NumberOfCopiesTableViewCell
             // row height to have cardText fit neatly
@@ -179,6 +176,7 @@ extension CardDetailViewController : UITableViewDelegate, UITableViewDataSource 
         
         
         cell.configure(with: self.oracleText)
+        cell.backgroundColor = UIColor(red: 61/255, green: 61/255, blue: 61/255, alpha: 1.0) /* #3d3d3d */
         
         
         return cell

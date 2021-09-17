@@ -11,13 +11,18 @@ class CardTextTableViewCell: UITableViewCell {
     
     static let identifier = "CardTextTableViewCell"
     
+    
+    
     var cardText : UILabel = {
         let label = UILabel()
         label.textColor = .white
+        label.layoutMargins.left = 3
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textAlignment = .left
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
+        label.layer.masksToBounds = true
+        label.layer.cornerRadius = 5
         return label
     }()
 
@@ -32,9 +37,9 @@ class CardTextTableViewCell: UITableViewCell {
         
         //https://medium.com/@satindersingh71/self-sizing-table-view-cells-programmatically-b0e82a20f264
         
-        cardText.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor).isActive = true
+        cardText.leadingAnchor.constraint(equalTo: marginGuide.leadingAnchor, constant: -7).isActive = true
         cardText.topAnchor.constraint(equalTo: marginGuide.topAnchor).isActive = true
-        cardText.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor).isActive = true
+        cardText.trailingAnchor.constraint(equalTo: marginGuide.trailingAnchor, constant: 7).isActive = true
         cardText.bottomAnchor.constraint(equalTo: marginGuide.bottomAnchor).isActive = true
         cardText.numberOfLines = 0
         
