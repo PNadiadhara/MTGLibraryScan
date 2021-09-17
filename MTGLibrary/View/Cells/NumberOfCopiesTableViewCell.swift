@@ -108,7 +108,7 @@ class NumberOfCopiesTableViewCell: UITableViewCell {
         stackView.axis = .horizontal
         stackView.spacing = 5
         addSubview(stackView)
-        stackView.anchor(top: topAnchor, left: numberOfCopies.rightAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 15, paddingLeft: 5, paddingBottom: 15, paddingRight: 10, width: 0, height: 70, enableInsets: false)
+        stackView.anchor(top: topAnchor, left: numberOfCopies.rightAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 15, paddingLeft: 5, paddingBottom: 15, paddingRight: 10, width: 0, height: 0, enableInsets: false)
         
         }
 }

@@ -26,11 +26,17 @@ class CardDetailViewController: UIViewController {
         view.backgroundColor = .black
         view.addSubview(cardDetailView)
         
-        cardDetailView.tableView.register(NumberOfCopiesTableViewCell.self, forCellReuseIdentifier: NumberOfCopiesTableViewCell.identifier)
-        cardDetailView.tableView.register(CardTextTableViewCell.self, forCellReuseIdentifier: CardTextTableViewCell.identifier)
-
-        cardDetailView.tableView.delegate = self
-        cardDetailView.tableView.dataSource = self
+        cardDetailView.cardDetailTableView.rowHeight = UITableView.automaticDimension
+        cardDetailView.cardDetailTableView.estimatedRowHeight = 600
+        
+        
+        cardDetailView.cardDetailTableView.register(NumberOfCopiesTableViewCell.self, forCellReuseIdentifier: NumberOfCopiesTableViewCell.identifier)
+        cardDetailView.cardDetailTableView.register(CardTextTableViewCell.self, forCellReuseIdentifier: CardTextTableViewCell.identifier)
+        
+       
+        
+        cardDetailView.cardDetailTableView.delegate = self
+        cardDetailView.cardDetailTableView.dataSource = self
         
         
         
@@ -88,7 +94,7 @@ class CardDetailViewController: UIViewController {
                     self.title = self.magicCard.name
                     self.oracleText = self.magicCard.oracle_text
                     print(self.oracleText)
-                    self.cardDetailView.tableView.reloadData()
+                    self.cardDetailView.cardDetailTableView.reloadData()
                     
                     
                     //adjust this to fix update text bug
@@ -106,6 +112,7 @@ class CardDetailViewController: UIViewController {
                         self.navigationController?.popToRootViewController(animated: true)
                     })
                     print("Result failed: " + error.localizedDescription)
+                    self.cardDetailView.cardDetailTableView.rowHeight = UITableView.automaticDimension
                 }
             }
             
@@ -153,17 +160,16 @@ extension CardDetailViewController : UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if indexPath.row == 0 {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: CardTextTableViewCell.identifier, for: indexPath) as! CardTextTableViewCell
-//
-//            cell.configure(with: magicCard.oracle_text)
-//            return cell
-//        }
+        //        if indexPath.row == 0 {
+        //            let cell = tableView.dequeueReusableCell(withIdentifier: CardTextTableViewCell.identifier, for: indexPath) as! CardTextTableViewCell
+        //
+        //            cell.configure(with: magicCard.oracle_text)
+        //            return cell
+        //        }
         if indexPath.row == 1 || indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: NumberOfCopiesTableViewCell.identifier, for: indexPath) as! NumberOfCopiesTableViewCell
             // row height to have cardText fit neatly
-            tableView.rowHeight = UITableView.automaticDimension
-            tableView.estimatedRowHeight = 600
+            
             cell.numberOfCopies.textColor = .white
             cell.configure(with: "Normal", quantity: "Num")
             return cell
@@ -171,13 +177,18 @@ extension CardDetailViewController : UITableViewDelegate, UITableViewDataSource 
         
         let cell = tableView.dequeueReusableCell(withIdentifier: CardTextTableViewCell.identifier, for: indexPath) as! CardTextTableViewCell
         
-            cell.configure(with: self.oracleText)
+        
+        cell.configure(with: self.oracleText)
         
         
         return cell
         
-       
+        
     }
+    
+    
+    
+
     
     
 }

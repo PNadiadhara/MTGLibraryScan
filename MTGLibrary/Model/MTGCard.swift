@@ -39,7 +39,8 @@ struct MTGCard: Codable, Equatable {
     // These are created by the user and not pull from the API
     var copies : Int? = 0
     var foilCopies: Int?
-      
+    // Dual Faced Cards
+    var card_faces: MDFCard?
 }
 
 struct ImageURIs: Codable {
@@ -56,7 +57,15 @@ struct Price: Codable {
     let usd_foil: String?
 }
 
-
+struct MDFCard: Codable {
+    let object: String
+    let name: String
+    let image_uris: ImageURIs
+    let mana_cost: String
+    let type_line: String
+    let oracle_text: String
+    
+}
 // Creature API Result
 // https://api.scryfall.com/cards/thb/226
 // Planeswalker

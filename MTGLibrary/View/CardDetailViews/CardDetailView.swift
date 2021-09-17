@@ -11,10 +11,12 @@ class CardDetailView: UIView {
 
     let cardImage = CardDetailImageView(frame: .zero)
     // using table view to place all api data instead of original plan for specific labels
-    let tableView: UITableView = {
+    let cardDetailTableView: UITableView = {
         let table = UITableView()
     
-        table.register(NumberOfCopiesTableViewCell.self, forCellReuseIdentifier: NumberOfCopiesTableViewCell.identifier)
+        table.rowHeight = UITableView.automaticDimension
+        table.estimatedRowHeight = 600
+    
         return table
     }()
     let saveButton = MTGButton(backgroundColor: .systemTeal, title: "Save")
@@ -32,15 +34,15 @@ class CardDetailView: UIView {
         //nameLabel,
         addSubviews(
                     cardImage,
-                    tableView,
+                    cardDetailTableView,
                     saveButton
         )
         
         cardImage           .translatesAutoresizingMaskIntoConstraints = false
-        tableView           .translatesAutoresizingMaskIntoConstraints = false
+        cardDetailTableView           .translatesAutoresizingMaskIntoConstraints = false
         saveButton          .translatesAutoresizingMaskIntoConstraints = false
         
-        tableView.layer.cornerRadius = 10
+        cardDetailTableView.layer.cornerRadius = 10
         
         
         NSLayoutConstraint.activate([
@@ -50,12 +52,13 @@ class CardDetailView: UIView {
             cardImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -11),
             cardImage.heightAnchor.constraint(equalToConstant: 275),
             
-            tableView.topAnchor.constraint(equalTo: cardImage.bottomAnchor, constant: 4),
-            tableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 11),
-            tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -11),
+            
+            cardDetailTableView.topAnchor.constraint(equalTo: cardImage.bottomAnchor, constant: 4),
+            cardDetailTableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 11),
+            cardDetailTableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -11),
             
             
-            saveButton.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 4),
+            saveButton.topAnchor.constraint(equalTo: cardDetailTableView.bottomAnchor, constant: 4),
             saveButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 11),
             saveButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -11),
             saveButton.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -11),

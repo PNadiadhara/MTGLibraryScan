@@ -17,13 +17,26 @@ class CardTextTableViewCell: UITableViewCell {
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textAlignment = .left
         label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
         return label
     }()
 
     private func setConstraints() {
         contentView.addSubviews(cardText)
         
-        cardText.anchor(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 10, paddingLeft: 10, paddingBottom: 10, paddingRight: 10, width: contentView.frame.size.width, height: 0, enableInsets: false)
+        cardText.anchor(top: self.safeAreaLayoutGuide.topAnchor,
+                        left: self.safeAreaLayoutGuide.leftAnchor,
+                        bottom: self.safeAreaLayoutGuide.bottomAnchor,
+                        right: self.safeAreaLayoutGuide.rightAnchor,
+                        paddingTop: 10,
+                        paddingLeft: 10,
+                        paddingBottom: 10,
+                        paddingRight: 10,
+                        width: contentView.frame.size.width,
+                        height: 0,
+                        enableInsets: false)
+        
+        cardText.translatesAutoresizingMaskIntoConstraints = false
     }
 
     public func configure(with oracleText: String){
