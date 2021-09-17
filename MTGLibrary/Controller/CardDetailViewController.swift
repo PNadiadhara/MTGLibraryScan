@@ -171,7 +171,7 @@ extension CardDetailViewController : UITableViewDelegate, UITableViewDataSource 
             // row height to have cardText fit neatly
             
             cell.numberOfCopies.textColor = .white
-            cell.configure(with: "Normal", quantity: "Num")
+            cell.configure(with: "Normal", quantity: "1")
             return cell
         }
         
@@ -182,13 +182,10 @@ extension CardDetailViewController : UITableViewDelegate, UITableViewDataSource 
         
         
         return cell
-        
-        
     }
     
-    
-    
-
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
     
 }

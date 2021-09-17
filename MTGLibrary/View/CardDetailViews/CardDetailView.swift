@@ -38,9 +38,9 @@ class CardDetailView: UIView {
                     saveButton
         )
         
-        cardImage           .translatesAutoresizingMaskIntoConstraints = false
+        cardImage                     .translatesAutoresizingMaskIntoConstraints = false
         cardDetailTableView           .translatesAutoresizingMaskIntoConstraints = false
-        saveButton          .translatesAutoresizingMaskIntoConstraints = false
+        saveButton                    .translatesAutoresizingMaskIntoConstraints = false
         
         cardDetailTableView.layer.cornerRadius = 10
         
@@ -56,6 +56,7 @@ class CardDetailView: UIView {
             cardDetailTableView.topAnchor.constraint(equalTo: cardImage.bottomAnchor, constant: 4),
             cardDetailTableView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 11),
             cardDetailTableView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -11),
+            
             
             
             saveButton.topAnchor.constraint(equalTo: cardDetailTableView.bottomAnchor, constant: 4),
