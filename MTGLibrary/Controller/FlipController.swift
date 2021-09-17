@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+// This will most likely become absolete and be deleted
 class FlipController: UIViewController {
     
 //    let mainView = CardCollectionView()
@@ -41,11 +41,7 @@ class FlipController: UIViewController {
     var setCode: String = ""
     var setNumber: String = ""
     
-    
-    
-    
-   
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

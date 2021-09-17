@@ -109,7 +109,6 @@ class CardDetailViewController: UIViewController {
                     self.cardDetailView.cardDetailTableView.rowHeight = UITableView.automaticDimension
                 }
             }
-            
         }
         
         func checkForCopies(magicCard: MTGCard) -> Bool {
@@ -118,7 +117,6 @@ class CardDetailViewController: UIViewController {
             }
             return false
         }
-        
     }
     
     func configureSaveButton() {
@@ -139,12 +137,8 @@ class CardDetailViewController: UIViewController {
             showAlert(title: nil, message: "Saved", actionTitle: "OK")
             
             print(DataPersistenceManager.getDocumentsDirectory())
-            
-            
         }
     }
-    
-    
 }
 
 //MARK: - TableView
@@ -154,7 +148,7 @@ extension CardDetailViewController : UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      
+        
         if indexPath.row == 1 || indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: NumberOfCopiesTableViewCell.identifier, for: indexPath) as! NumberOfCopiesTableViewCell
             

@@ -35,7 +35,7 @@ class CardCollectionViewController: UIViewController, UISearchBarDelegate  {
         request.recognitionLanguages = ["en_US"]
         return request
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchbar.delegate = self
@@ -53,10 +53,7 @@ class CardCollectionViewController: UIViewController, UISearchBarDelegate  {
     
     func configureNavBar() {
         title = "Collection"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCardButtonTapped))
-        
-        
-
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCardButtonTapped))  
     }
     
     func configureSearchController() {
@@ -160,7 +157,7 @@ class CardCollectionViewController: UIViewController, UISearchBarDelegate  {
                 print(setNumber)
             } else {
                 self.setNumber = "\(setNumberComponent.text)"
-               
+                
             }
             if setComponent.text.count >= 3 {
                 self.setCode = "\(setComponent.text.prefix(3))"
@@ -171,8 +168,6 @@ class CardCollectionViewController: UIViewController, UISearchBarDelegate  {
             
             self.pushCardDetailViewController(setName: self.setCode, setNumber: self.setNumber)
         }
-        
-        
     }
     
     private func removeLeadingZeros(setNumber: String) -> String {
@@ -193,7 +188,7 @@ class CardCollectionViewController: UIViewController, UISearchBarDelegate  {
         let cardDetailVC = CardDetailViewController()
         cardDetailVC.setNameCode = mtgCard.set
         cardDetailVC.setNumberCode = mtgCard.collector_number
-
+        
         navigationController?.pushViewController(cardDetailVC, animated: true)
         print("pushed vc from saved MTGCard object")
     }
@@ -202,6 +197,7 @@ class CardCollectionViewController: UIViewController, UISearchBarDelegate  {
         
         let requests = [textDetectionRequest]
         let imageRequestHandler = VNImageRequestHandler(cgImage: cgImage, orientation: .right, options: [:])
+        
         DispatchQueue.global(qos: .userInitiated).async {
             do {
                 try imageRequestHandler.perform(requests)
@@ -210,8 +206,6 @@ class CardCollectionViewController: UIViewController, UISearchBarDelegate  {
             }
         }
     }
-    
-
 }
 
 extension CardCollectionViewController: UICollectionViewDelegate {
@@ -221,12 +215,8 @@ extension CardCollectionViewController: UICollectionViewDelegate {
             print( "\(filterdMTGCards[indexPath.row].name) tapped")
         } else {
             pushSavedCardDetailViewController(mtgCard: savedMTGCards[indexPath.row])
-            
         }
-        
-        
     }
-    
 }
 
 extension CardCollectionViewController: UICollectionViewDataSource {
@@ -236,7 +226,6 @@ extension CardCollectionViewController: UICollectionViewDataSource {
         } else {
             return savedMTGCards.count
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -250,9 +239,6 @@ extension CardCollectionViewController: UICollectionViewDataSource {
         }
         return cell
     }
-    
-    
- 
 }
 
 extension CardCollectionViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -275,7 +261,6 @@ extension CardCollectionViewController: UISearchResultsUpdating, UISearchControl
         filterdMTGCards = savedMTGCards.filter {
             $0.name.range(of: "\(text)", options: .caseInsensitive) != nil
         }
-        
     }
 }
 
