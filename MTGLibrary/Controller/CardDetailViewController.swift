@@ -30,26 +30,16 @@ class CardDetailViewController: UIViewController {
         cardDetailView.cardDetailTableView.estimatedRowHeight = 600
         cardDetailView.cardDetailTableView.allowsSelection = false
         
-        
-        
         cardDetailView.cardDetailTableView.register(NumberOfCopiesTableViewCell.self, forCellReuseIdentifier: NumberOfCopiesTableViewCell.identifier)
         cardDetailView.cardDetailTableView.register(CardTextTableViewCell.self, forCellReuseIdentifier: CardTextTableViewCell.identifier)
         
-       
-        
         cardDetailView.cardDetailTableView.delegate = self
         cardDetailView.cardDetailTableView.dataSource = self
-        
-        
-        
         
         getCardInfo(setCode: setNameCode, setNumber: setNumberCode)
         
         configureSaveButton()
         configureNavBar()
-        
-        
-        // "https://c1.scryfall.com/file/scryfall-cards/art_crop/front/8/1/81e0d739-990f-4ba5-b456-165c033014cf.jpg?1599707370"
         
         
     }
@@ -81,6 +71,8 @@ class CardDetailViewController: UIViewController {
             })
         }
     }
+    
+    //MARK: - Netwrok Call
     
     func getCardInfo(setCode: String, setNumber: String) {
         NetworkManager.shared.getCards(for: setCode, setNumber: setNumber) { [weak self] result in
@@ -165,7 +157,6 @@ extension CardDetailViewController : UITableViewDelegate, UITableViewDataSource 
       
         if indexPath.row == 1 || indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: NumberOfCopiesTableViewCell.identifier, for: indexPath) as! NumberOfCopiesTableViewCell
-            // row height to have cardText fit neatly
             
             cell.numberOfCopies.textColor = .white
             cell.configure(with: "Normal", quantity: "1")
