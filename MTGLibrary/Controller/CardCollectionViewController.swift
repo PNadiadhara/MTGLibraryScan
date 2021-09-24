@@ -53,7 +53,8 @@ class CardCollectionViewController: UIViewController, UISearchBarDelegate  {
     
     func configureNavBar() {
         title = "Collection"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCardButtonTapped))  
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCardButtonTapped))
+        
     }
     
     func configureSearchController() {

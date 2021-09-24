@@ -30,8 +30,8 @@
             filePath = "MTGLibrary/Controller/CardCollectionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "handleDectectedText(request:error:)"
             landmarkType = "7">
          </BreakpointContent>
