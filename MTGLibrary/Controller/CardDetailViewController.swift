@@ -72,7 +72,7 @@ class CardDetailViewController: UIViewController {
         }
     }
     
-    //MARK: - Netwrok Call
+    //MARK: - Network Call
     
     func getCardInfo(setCode: String, setNumber: String) {
         NetworkManager.shared.getCards(for: setCode, setNumber: setNumber) { [weak self] result in
@@ -94,8 +94,10 @@ class CardDetailViewController: UIViewController {
                     //adjust this to fix update text bug
                     if self.collectedCards.contains(self.magicCard) {
                         self.cardDetailView.saveButton.set(backgroundColor: .systemTeal, title: "Update")
-                        
+                    } else {
+                        self.cardDetailView.saveButton.set(backgroundColor: .systemGreen, title: "Save")
                     }
+                    
                 }
                 
                 
@@ -124,6 +126,7 @@ class CardDetailViewController: UIViewController {
     }
     
     @objc private func saveButtonPressed() {
+        // cancel saves new copy while saving overwrites
         if let newMTGCard = magicCard {
             if collectedCards.contains(magicCard) {
                 updateCard()
