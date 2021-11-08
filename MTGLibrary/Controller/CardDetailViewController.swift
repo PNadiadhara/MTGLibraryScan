@@ -66,6 +66,7 @@ class CardDetailViewController: UIViewController {
                 $0 == magicCard
             }
             showDestructionAlert(title: nil, message: "Update information?", style: .alert, handler: {_ in
+                MTGCardDataManager.saveMTGCard()
                 MTGCardDataManager.deleteMTGCard(atIndex: index!)
                 self.navigationController?.popToRootViewController(animated: true)
             })
@@ -87,16 +88,16 @@ class CardDetailViewController: UIViewController {
                     
                     self.title = self.magicCard.name
                     self.oracleText = self.magicCard.oracle_text
-                    print(self.oracleText)
+                    //print(self.oracleText)
                     self.cardDetailView.cardDetailTableView.reloadData()
                     
                     
-                    //adjust this to fix update text bug
-                    if self.collectedCards.contains(self.magicCard) {
-                        self.cardDetailView.saveButton.set(backgroundColor: .systemTeal, title: "Update")
-                    } else {
-                        self.cardDetailView.saveButton.set(backgroundColor: .systemGreen, title: "Save")
-                    }
+//                    //adjust this to fix update text bug
+//                    if self.collectedCards.contains(self.magicCard) {
+//                        self.cardDetailView.saveButton.set(backgroundColor: .systemTeal, title: "Update")
+//                    } else {
+//                        self.cardDetailView.saveButton.set(backgroundColor: .systemGreen, title: "Save")
+//                    }
                     
                 }
                 
@@ -122,6 +123,7 @@ class CardDetailViewController: UIViewController {
     }
     
     func configureSaveButton() {
+        
         cardDetailView.saveButton.addTarget(self, action: #selector(saveButtonPressed), for: .touchUpInside)
     }
     
@@ -131,7 +133,7 @@ class CardDetailViewController: UIViewController {
             if collectedCards.contains(magicCard) {
                 updateCard()
                 MTGCardDataManager.addMTGCard(mtgCard: magicCard)
-                print("Card Collection Updated")
+                //print("Card Collection Updated")
             } else {
                 MTGCardDataManager.addMTGCard(mtgCard: newMTGCard)
                 showAlert(title: nil, message: "Card Saved", actionTitle: "OK")
@@ -139,7 +141,7 @@ class CardDetailViewController: UIViewController {
             }
             showAlert(title: nil, message: "Saved", actionTitle: "OK")
             
-            print(DataPersistenceManager.getDocumentsDirectory())
+            //print(DataPersistenceManager.getDocumentsDirectory())
         }
     }
 }

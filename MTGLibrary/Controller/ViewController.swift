@@ -146,10 +146,10 @@ class ViewController: UIViewController {
             print("got to right before funciton call")
             print(self.removeLeadingZeros(setNumber: self.OCRScanview.setNumberLabel.text))
             
-            //self.getCardInfo(setCode: self.OCRScanview.setLabel.text.lowercased(), setNumber: self.removeLeadingZeros(setNumber: self.OCRScanview.setNumberLabel.text) )
+
             let setCode = self.OCRScanview.setLabel.text.lowercased()
             let setNumber = self.removeLeadingZeros(setNumber: self.OCRScanview.setNumberLabel.text)
-            //self.getCardInfo(setCode: setCode, setNumber: setNumber)
+            
         
             self.pushCardDetailViewController(setName: setCode, setNumber: setNumber)
             
@@ -161,14 +161,11 @@ class ViewController: UIViewController {
         let temp = Int(setNumber) ?? 0
         return String(temp)
     }
-// func pushCardDetailViewController(magicCard: MTGCard)
+
     func pushCardDetailViewController(setName: String, setNumber: String) {
         let cardDetailVC = CardDetailViewController()
         cardDetailVC.setNameCode = setName
         cardDetailVC.setNumberCode = setNumber
-        //cardDetailVC.magicCard = magicCard
-        //cardDetailVC.modalPresentationStyle = .fullScreen
-        //present(cardDetailVC, animated: true)
         navigationController?.pushViewController(cardDetailVC, animated: true)
         print("push code ran")
     }
