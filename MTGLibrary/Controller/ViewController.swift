@@ -8,7 +8,7 @@
 import UIKit
 import Vision
 import Photos
-
+// This ViewController was used to check Vision API response on the app
 class ViewController: UIViewController {
 
     
@@ -44,8 +44,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .blue
         view.addSubview(OCRScanview)
-        
-        
+
         OCRScanview.nameLabel.text = ""
         configureButtons()
     }
@@ -59,16 +58,11 @@ class ViewController: UIViewController {
                 self.mtgCard = mtgCardAPI
                 //print(self.mtgCard.oracle_text)
                 
-            
             case .failure(let error):
-                
                 print("Result failed: " + error.localizedDescription)
-                
-                
+    
             }
-            
         }
-        //return mtgCard
     }
     
     func configureButtons(){
@@ -83,7 +77,6 @@ class ViewController: UIViewController {
         OCRScanview.setNumberLabel.text = ""
         
         guard let image  = image, let cgImage = image.cgImage else {return}
-        
         let requests = [textDetectionRequest]
         let imageRequestHandler = VNImageRequestHandler(cgImage: cgImage, orientation: .right, options: [:])
         DispatchQueue.global(qos: .userInitiated).async {

@@ -7,6 +7,9 @@
 
 import UIKit
 
+// Note: This view is no longer used in favor of collection view that displays collected cards
+// This View was used to check Vision API response on the app
+
 class OCRScanView: UIView {
 
     public lazy var nameLabel: UITextView = {
