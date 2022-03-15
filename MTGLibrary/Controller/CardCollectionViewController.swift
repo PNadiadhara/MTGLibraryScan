@@ -112,7 +112,7 @@ class CardCollectionViewController: UIViewController, UISearchBarDelegate  {
     }
     
     
-    
+//MARK: - Vision Set Up
     private func handleDectectedText(request:VNRequest?, error: Error?) {
         if let error = error {
             showAlert(title: "Error", message: error.localizedDescription, actionTitle: "")

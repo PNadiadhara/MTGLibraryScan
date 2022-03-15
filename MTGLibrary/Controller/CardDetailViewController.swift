@@ -18,6 +18,7 @@ class CardDetailViewController: UIViewController {
     public var magicCard : MTGCard!
     var collectedCards = MTGCardDataManager.getMTGCards()
     var oracleText = String()
+    var copies : Int = 1
     
     
     
@@ -154,7 +155,7 @@ class CardDetailViewController: UIViewController {
 //MARK: - TableView
 extension CardDetailViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -163,7 +164,7 @@ extension CardDetailViewController : UITableViewDelegate, UITableViewDataSource 
             let cell = tableView.dequeueReusableCell(withIdentifier: NumberOfCopiesTableViewCell.identifier, for: indexPath) as! NumberOfCopiesTableViewCell
             
             cell.numberOfCopies.textColor = .white
-            cell.configure(with: "Normal", quantity: "1")
+          cell.configure(with: "Normal", quantity: String(self.copies))
             return cell
         }
         
