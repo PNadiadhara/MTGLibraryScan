@@ -9,6 +9,7 @@ import UIKit
 
 // Note: This view is no longer used in favor of collection view that displays collected cards
 // This View was used to check Vision API response on the app
+// Used for early Debug purpose
 
 class OCRScanView: UIView {
 

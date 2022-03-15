@@ -124,6 +124,7 @@ class CardCollectionViewController: UIViewController, UISearchBarDelegate  {
         }
         var components = [CardComponent]()
         
+      // We only need the first result as it is the most accurate
         for result in results {
             if let observation = result as? VNRecognizedTextObservation {
                 for text in observation.topCandidates(1) {
@@ -163,7 +164,7 @@ class CardCollectionViewController: UIViewController, UISearchBarDelegate  {
             if setComponent.text.count >= 3 {
                 self.setCode = "\(setComponent.text.prefix(3))"
             }
-            //MARK: - Fix string for api call
+
             self.setCode = self.setCode.lowercased()
             self.setNumber =  removeLeadingZeros(setNumber: setNumber)
             

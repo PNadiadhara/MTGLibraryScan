@@ -18,7 +18,6 @@
 		BF1E2E3825F939B200888984 /* CardComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1E2E3725F939B200888984 /* CardComponent.swift */; };
 		BF1E2E4025F93EC000888984 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1E2E3F25F93EC000888984 /* AlertController.swift */; };
 		BF1E2E4525F95C9B00888984 /* OCRScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1E2E4425F95C9B00888984 /* OCRScanView.swift */; };
-		BF3656A22603FA7E00A5AF1B /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF3656A02603FA7E00A5AF1B /* DataModel.xcdatamodeld */; };
 		BF3656A52612B07600A5AF1B /* CardCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3656A42612B07600A5AF1B /* CardCollectionViewController.swift */; };
 		BF3656A82612B90A00A5AF1B /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3656A72612B90A00A5AF1B /* CardCollectionViewCell.swift */; };
 		BF3D31E526028EB90055ACEF /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3D31E426028EB90055ACEF /* CardDetailViewController.swift */; };
@@ -57,7 +56,6 @@
 		BF1E2E3725F939B200888984 /* CardComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardComponent.swift; sourceTree = "<group>"; };
 		BF1E2E3F25F93EC000888984 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		BF1E2E4425F95C9B00888984 /* OCRScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCRScanView.swift; sourceTree = "<group>"; };
-		BF3656A12603FA7E00A5AF1B /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		BF3656A42612B07600A5AF1B /* CardCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewController.swift; sourceTree = "<group>"; };
 		BF3656A72612B90A00A5AF1B /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF3D31E426028EB90055ACEF /* CardDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
@@ -144,7 +142,6 @@
 			children = (
 				BF1E2E3725F939B200888984 /* CardComponent.swift */,
 				BFDC7E782601484400D93D93 /* MTGCard.swift */,
-				BF3656A02603FA7E00A5AF1B /* DataModel.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -320,7 +317,6 @@
 				BF05570926CADC7700CB2E6F /* Anchors.swift in Sources */,
 				BF80BCC42656F27600BF2B45 /* CollectionViewHelper.swift in Sources */,
 				BF1E2E4525F95C9B00888984 /* OCRScanView.swift in Sources */,
-				BF3656A22603FA7E00A5AF1B /* DataModel.xcdatamodeld in Sources */,
 				BF1E2E2425F9254100888984 /* ViewController.swift in Sources */,
 				BFF22B002633339800E49AF9 /* UITableViewExt.swift in Sources */,
 				BF3F18E12602BFA8000B0AF8 /* AddMultipleSubviews.swift in Sources */,
@@ -541,19 +537,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		BF3656A02603FA7E00A5AF1B /* DataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				BF3656A12603FA7E00A5AF1B /* DataModel.xcdatamodel */,
-			);
-			currentVersion = BF3656A12603FA7E00A5AF1B /* DataModel.xcdatamodel */;
-			path = DataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = BF1E2E1425F9254000888984 /* Project object */;
 }

@@ -13,7 +13,6 @@ class CardDetailView: UIView {
     // using table view to place all api data instead of original plan for specific labels
     let cardDetailTableView: UITableView = {
         let table = UITableView()
-    
         table.rowHeight = UITableView.automaticDimension
         table.estimatedRowHeight = 600
     

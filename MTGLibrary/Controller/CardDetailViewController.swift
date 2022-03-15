@@ -91,13 +91,14 @@ class CardDetailViewController: UIViewController {
                     //print(self.oracleText)
                     self.cardDetailView.cardDetailTableView.reloadData()
                     
+                    //self.checkForCopies(magicCard: self.magicCard)
                     
-//                    //adjust this to fix update text bug
-//                    if self.collectedCards.contains(self.magicCard) {
-//                        self.cardDetailView.saveButton.set(backgroundColor: .systemTeal, title: "Update")
-//                    } else {
-//                        self.cardDetailView.saveButton.set(backgroundColor: .systemGreen, title: "Save")
-//                    }
+                    //adjust this to fix update text bug
+                    if self.collectedCards.contains(self.magicCard) {
+                        self.cardDetailView.saveButton.set(backgroundColor: .systemTeal, title: "Update")
+                    } else {
+                        self.cardDetailView.saveButton.set(backgroundColor: .systemGreen, title: "Save")
+                    }
                     
                 }
                 
@@ -114,13 +115,17 @@ class CardDetailViewController: UIViewController {
             }
         }
         
-        func checkForCopies(magicCard: MTGCard) -> Bool {
-            if collectedCards.contains(magicCard) {
-                return true
-            }
-            return false
-        }
+        
     }
+    
+//    func checkForCopies(magicCard: MTGCard) -> Bool {
+//        if collectedCards.contains(magicCard) {
+//            print("Card found in collection")
+//            return true
+//        }
+//        print("Card not found in collection")
+//        return false
+//    }
     
     func configureSaveButton() {
         
